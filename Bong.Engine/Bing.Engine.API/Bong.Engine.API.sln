@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Engine.API", "Bong.Engine.API\Bong.Engine.API.csproj", "{1114A8FF-725F-46CE-9DFC-8E6EEB7A077D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1114A8FF-725F-46CE-9DFC-8E6EEB7A077D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1114A8FF-725F-46CE-9DFC-8E6EEB7A077D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1114A8FF-725F-46CE-9DFC-8E6EEB7A077D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1114A8FF-725F-46CE-9DFC-8E6EEB7A077D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44C3958C-B68C-4A14-811C-A2802A92670E}
+	EndGlobalSection
+EndGlobal
