@@ -1,1 +1,13 @@
 @import "../node_modules/spectre.css/src/spectre";
+
+.bong {
+    .bong-menu {
+        background: $bg-color;
+
+        .accordion {
+            label:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
