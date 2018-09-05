@@ -31,31 +31,21 @@ module.exports = function (grunt) {
                 }
             }
         },
-        babel: {
-            options: {
-                plugins: ['transform-react-jsx'],
-                presets: ['es2015', 'react']
-            },
-            jsx: {
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: ['*.jsx', '**/*.jsx'],
-                    dest: 'build',
-                    ext: '.js'
-                }]
-            }
-        },
         browserify: {
             dist: {
                 files: {
-                    'dist/app.js': ['build/*.js']
+                    'dist/app.js': ['src/**/*.ts', 'src/**/*.tsx']
+                },
+                options: {
+                    plugin: [
+                        ['tsify', { noImplicitAny: true }]
+                    ]
                 }
             }
         },
         watch: {
             scripts: {
-                files: ['src/**/*.jsx', 'src/**/*.js', 'styles/*.scss'],
+                files: ['src/**/*.tsx', 'src/**/*.ts', 'styles/*.scss'],
                 tasks: ['reload'],
                 options: {
                     spawn: false,
@@ -64,16 +54,6 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            main: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'src',
-                        src: ['**/*.js', '!**/config.js'],
-                        dest: 'build/'
-                    },
-                ],
-            },
             css: {
                 files: [
                     {
@@ -101,7 +81,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');

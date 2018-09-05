@@ -1,4 +1,7 @@
-export class Menu extends React.Component {
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+
+export default class Menu extends React.Component<{}> {
 
     render() {
         return (<div className="column col-2 bong-menu">
@@ -10,8 +13,8 @@ export class Menu extends React.Component {
             </label>
                 <div className="accordion-body">
                     <ul className="menu menu-nav">
-                        <li className="menu-item"><a href="getting-started.html#introduction">Pages</a></li>
-                        <li className="menu-item"><a href="getting-started.html#installation">Posts</a></li>
+                        <li className="menu-item"><Link to="/pages">Pages</Link></li>
+                        <li className="menu-item"><Link to="/posts">Posts</Link></li>
                     </ul>
                 </div>
             </div>
@@ -22,14 +25,12 @@ export class Menu extends React.Component {
             </label>
                 <div className="accordion-body">
                     <ul className="menu menu-nav">
-                        <li className="menu-item"><a href="getting-started.html#introduction">Site</a></li>
-                        <li className="menu-item"><a href="getting-started.html#installation">Email</a></li>
-                        <li className="menu-item"><a href="getting-started.html#installation">Azure</a></li>
+                        <li className="menu-item"><Link to="/site">Site</Link></li>
+                        <li className="menu-item"><Link to="/email">Email</Link></li>
+                        <li className="menu-item"><Link to="/azure">Azure</Link></li>
                     </ul>
                 </div>
             </div>
         </div>);
     }
 }
-
-module.exports = Menu;
