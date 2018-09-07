@@ -34,8 +34,9 @@ module.exports = function (grunt) {
         browserify: {
             dist: {
                 files: {
-                    'dist/app.js': ['src/**/*.ts', 'src/**/*.tsx']
+                    'dist/app.js': ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.d.ts']
                 },
+                external: 'react',
                 options: {
                     plugin: [
                         ['tsify', { noImplicitAny: true }]
@@ -86,6 +87,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['concat', 'babel', 'sass', 'copy', 'browserify', 'connect', 'watch']);
-    grunt.registerTask('reload', ['concat', 'babel', 'sass', 'copy', 'browserify']);
+    grunt.registerTask('default', ['concat', 'sass', 'copy', 'browserify', 'connect', 'watch']);
+    grunt.registerTask('reload', ['concat', 'sass', 'copy', 'browserify']);
 };

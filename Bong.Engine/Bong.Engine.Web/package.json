@@ -2,7 +2,8 @@
   "name": "bong.engine.web",
   "version": "1.0.0",
   "description": "Bong admin UI",
-  "main": "index.js",
+  "main": "./src/app.tsx",
+  "types": "./src/app.tsx",
   "scripts": {
     "start": "grunt"
   },
