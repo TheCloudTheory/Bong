@@ -8,9 +8,9 @@ export default class PagesList extends Bong.Module {
     render() {
         return (
             <PanelWithList
-                title="Pages"
-                module="page"
-                createItemButtonText="Add new page"
+                title='Pages'
+                module='page'
+                createItemButtonText='Add new page'
                 columns={['Title', 'Slug', 'Created']}
             />
         );

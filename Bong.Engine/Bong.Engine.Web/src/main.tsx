@@ -11,7 +11,8 @@ export default class Main extends React.Component<{}, {}> {
                     <Menu />
                     <div className="column col-10">
                         <Route exact path="/" component={(modules as any)['Start']} />
-                        <Route exact path="/pages" component={(modules as any)['PagesList']} />
+                        <Route exact path="/page" component={(modules as any)['PagesList']} />
+                        <Route exact path="/page/create" component={(modules as any)['PagesCreate']} />
                     </div>
                 </div>
             </div>

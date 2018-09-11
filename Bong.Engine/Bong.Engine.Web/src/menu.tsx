@@ -13,8 +13,8 @@ export default class Menu extends React.Component<{}> {
             </label>
                 <div className="accordion-body">
                     <ul className="menu menu-nav">
-                        <li className="menu-item"><Link to="/pages">Pages</Link></li>
-                        <li className="menu-item"><Link to="/posts">Posts</Link></li>
+                        <li className="menu-item"><Link to="/page">Pages</Link></li>
+                        <li className="menu-item"><Link to="/post">Posts</Link></li>
                     </ul>
                 </div>
             </div>
