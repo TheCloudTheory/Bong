@@ -13,6 +13,8 @@ export default class Main extends React.Component<{}, {}> {
                         <Route exact path="/" component={(modules as any)['Start']} />
                         <Route exact path="/page" component={(modules as any)['PagesList']} />
                         <Route exact path="/page/create" component={(modules as any)['PagesCreate']} />
+                        <Route exact path="/post" component={(modules as any)['PostsList']} />
+                        <Route exact path="/post/create" component={(modules as any)['PostsCreate']} />
                     </div>
                 </div>
             </div>

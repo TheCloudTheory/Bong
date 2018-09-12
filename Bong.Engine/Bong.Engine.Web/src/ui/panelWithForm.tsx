@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-export default class PanelWithForm extends React.Component<PanelWithFormProps> {
+export class PanelWithForm extends React.Component<PanelWithFormProps> {
 
     render() {
         return (
@@ -19,15 +20,25 @@ export default class PanelWithForm extends React.Component<PanelWithFormProps> {
                 <div className="panel-body">
                     {this.props.html}
                 </div>
-                <div className="panel-footer text-right">
-                    <button className="btn btn-primary">Save</button>
+                <div className="panel-footer">
+                    <div className="columns">
+                        <div className="column col-6">
+                        <button className="btn" onClick={() => this.props.history.goBack()}>Back</button>
+                        </div>
+                        <div className="column col-6 text-right">
+                            <button className="btn btn-primary">Save</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
     }
 }
 
-type PanelWithFormProps = {
+
+type PanelWithFormProps = RouteComponentProps<any> & {
     title: string,
     html: JSX.Element
 }
+
+export default withRouter(PanelWithForm);

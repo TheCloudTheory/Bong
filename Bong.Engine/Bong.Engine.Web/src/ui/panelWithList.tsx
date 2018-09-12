@@ -41,8 +41,8 @@ export default class PanelWithList extends React.Component<PanelWithListProps> {
     private generateHeaders(): Array<JSX.Element> {
         var html: Array<JSX.Element> = [];
 
-        this.props.columns.forEach(value => {
-            html.push(<th>{value}</th>)
+        this.props.columns.forEach((value, index) => {
+            html.push(<th key={index}>{value}</th>)
         })
 
         return html;
