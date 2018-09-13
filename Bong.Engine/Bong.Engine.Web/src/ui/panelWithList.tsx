@@ -11,6 +11,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
     constructor(props: PanelWithListProps) {
         super(props);
 
+        this.state = { data: [] };
         this.repository = new Repository<TModule>();
     }
 
@@ -45,11 +46,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
                             <tr>{this.generateHeaders()}</tr>
                         </thead>
                         <tbody>
-                            <tr className="active">
-                                <td>The Shawshank Redemption</td>
-                                <td>Crime, Drama</td>
-                                <td>14 October 1994</td>
-                            </tr>
+                            {this.state.data && this.generateRows()}
                         </tbody>
                     </table>
                 </div>
@@ -63,6 +60,26 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
         this.props.columns.forEach((value, index) => {
             html.push(<th key={index}>{value}</th>)
         })
+
+        return html;
+    }
+
+    private generateRows(): Array<JSX.Element> {
+        var html: Array<JSX.Element> = [];
+
+        this.state.data.forEach((value, index) => {
+            html.push(<tr key={index}>{this.generateCols(value)}</tr>)
+        })
+
+        return html;
+    }
+
+    private generateCols(values: TModule): Array<JSX.Element> {
+        var html: Array<JSX.Element> = [];
+
+        for(let value in values) {
+            html.push(<td key={value}>{values[value]}</td>)
+        }
 
         return html;
     }

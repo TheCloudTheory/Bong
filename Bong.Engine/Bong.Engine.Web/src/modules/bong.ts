@@ -9,5 +9,7 @@ namespace Bong {
         protected abstract getForm() : JSX.Element;
     }
 
-    export class EntityModule {}
+    export class EntityModule {
+        
+    }
 }
