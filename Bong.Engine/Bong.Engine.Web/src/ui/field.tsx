@@ -6,7 +6,7 @@ export default class Field extends React.Component<FieldProps> {
         return (
             <div className="form-group">
                 <label className="form-label">{this.props.label}</label>
-                <input className="form-input" type={this.props.type} placeholder={this.props.placeholder} />
+                <input className="form-input" type={this.props.type} placeholder={this.props.placeholder} name={this.props.name} />
             </div>
         );
     }
@@ -15,5 +15,6 @@ export default class Field extends React.Component<FieldProps> {
 type FieldProps = {
     label: string,
     type: string,
+    name: string,
     placeholder?: string
 }
