@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -11,13 +12,12 @@ namespace Bong.Engine.API.Modules.Pages
     public static partial class Pages
     {
         [FunctionName("Pages_List")]
-        public static IActionResult Pages_List(
+        public static async Task<IActionResult> Pages_List(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "page")]HttpRequest req, 
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table,
             ILogger log)
         {
-            var result = new List<PagesEntity>() {new PagesEntity()};
-
+            var result = await GetPages(table);
             return new JsonResult(result);
         }
     }
