@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class Menu extends React.Component<{}> {
 
     render() {
-        return (<div className="column col-2 bong-menu">
+        return (<div className="bong-menu">
             <img src="images/logo.png" style={{ display: 'block', margin: '1em auto' }} />
             <div className="accordion">
                 <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden />

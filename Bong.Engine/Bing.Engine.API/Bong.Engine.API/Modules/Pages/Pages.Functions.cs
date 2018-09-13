@@ -1,9 +1,10 @@
-using System.Linq;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Bong.Engine.API.Modules.Pages
 {
@@ -11,11 +12,13 @@ namespace Bong.Engine.API.Modules.Pages
     {
         [FunctionName("Pages_List")]
         public static IActionResult Pages_List(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "pages")]HttpRequest req, 
-            [Table(TableName, Connection = Constants.ConnectionName)] IQueryable<PagesEntity> pages,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "page")]HttpRequest req, 
+            [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table,
             ILogger log)
         {
-            return new OkResult();
+            var result = new List<PagesEntity>() {new PagesEntity()};
+
+            return new JsonResult(result);
         }
     }
 }

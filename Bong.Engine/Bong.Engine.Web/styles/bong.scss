@@ -3,6 +3,7 @@
 .bong {
     .bong-menu {
         background: $bg-color;
+        padding: 0 1rem;
 
         .accordion {
             label:hover {
@@ -13,5 +14,11 @@
 
     .bong-panel-list {
         border: none;
+    }
+
+    .off-canvas {
+        .off-canvas-content {
+            padding: 0;
+        }
     }
 }

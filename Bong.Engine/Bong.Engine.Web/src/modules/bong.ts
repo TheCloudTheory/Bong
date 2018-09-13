@@ -8,4 +8,6 @@ namespace Bong {
     export abstract class FormModule extends React.Component {
         protected abstract getForm() : JSX.Element;
     }
+
+    export class EntityModule {}
 }

@@ -1,7 +1,26 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import * as Bong from '../modules/bong';
 
-export default class PanelWithList extends React.Component<PanelWithListProps> {
+import Repository from '../repository';
+
+export default class PanelWithList<TModule extends Bong.EntityModule> extends React.Component<PanelWithListProps, PanelWithListState> {
+
+    private repository: Repository<TModule>;
+
+    constructor(props: PanelWithListProps) {
+        super(props);
+
+        this.repository = new Repository<TModule>();
+    }
+
+    componentDidMount() {
+        this.repository.list(this.props.module).then(_ => {
+            this.setState({
+                data: _.data
+            })
+        });
+    }
 
     render() {
         return (
@@ -54,4 +73,8 @@ type PanelWithListProps = {
     module: string,
     createItemButtonText: string,
     columns: Array<string>
+}
+
+type PanelWithListState = {
+    data: Array<any>
 }

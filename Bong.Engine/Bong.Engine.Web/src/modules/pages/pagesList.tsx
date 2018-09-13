@@ -7,7 +7,7 @@ export default class PagesList extends Bong.Module {
 
     render() {
         return (
-            <PanelWithList
+            <PanelWithList<Bong.EntityModule>
                 title='Pages'
                 module='page'
                 createItemButtonText='Add new page'
