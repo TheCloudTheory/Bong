@@ -11,14 +11,15 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
     constructor(props: PanelWithListProps) {
         super(props);
 
-        this.state = { data: [] };
+        this.state = { data: [], isLoading: true };
         this.repository = new Repository<TModule>();
     }
 
     componentDidMount() {
         this.repository.list(this.props.module).then(_ => {
             this.setState({
-                data: _.data
+                data: _.data,
+                isLoading: false
             })
         });
     }
@@ -40,7 +41,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
                 </div>
                 <div className="panel-nav">
                 </div>
-                <div className="panel-body">
+                <div className={this.state.isLoading ? 'panel-body loading' : 'panel-body'}>
                     <table className="table table-striped table-hover">
                         <thead>
                             <tr>{this.generateHeaders()}</tr>
@@ -77,7 +78,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
     private generateCols(values: TModule): Array<JSX.Element> {
         var html: Array<JSX.Element> = [];
 
-        for(let value in values) {
+        for (let value in values) {
             html.push(<td key={value}>{values[value]}</td>)
         }
 
@@ -93,5 +94,6 @@ type PanelWithListProps = {
 }
 
 type PanelWithListState = {
-    data: Array<any>
+    data: Array<any>,
+    isLoading: boolean
 }
