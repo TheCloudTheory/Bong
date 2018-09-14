@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import * as Bong from '../modules/bong';
 
 import Repository from '../repository';
+import {Toast, ToastStatus} from './toast';
 
 export default class PanelWithList<TModule extends Bong.EntityModule> extends React.Component<PanelWithListProps, PanelWithListState> {
 
@@ -11,7 +12,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
     constructor(props: PanelWithListProps) {
         super(props);
 
-        this.state = { data: [], isLoading: true };
+        this.state = { data: [], isLoading: true, isError: false };
         this.repository = new Repository<TModule>();
     }
 
@@ -19,7 +20,14 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
         this.repository.list(this.props.module).then(_ => {
             this.setState({
                 data: _.data,
-                isLoading: false
+                isLoading: false,
+                isError: false
+            })
+        }).catch(_ => {
+            this.setState({
+                isError: true,
+                isLoading: false,
+                errorMessage: _.message
             })
         });
     }
@@ -42,6 +50,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
                 <div className="panel-nav">
                 </div>
                 <div className={this.state.isLoading ? 'panel-body loading' : 'panel-body'}>
+                    {this.state.isError && <Toast text={this.state.errorMessage} status={ToastStatus.Error} />}
                     <table className="table table-striped table-hover">
                         <thead>
                             <tr>{this.generateHeaders()}</tr>
@@ -96,5 +105,7 @@ type PanelWithListProps = {
 
 type PanelWithListState = {
     data: Array<any>,
-    isLoading: boolean
+    isLoading: boolean,
+    isError: boolean,
+    errorMessage?: string
 }
