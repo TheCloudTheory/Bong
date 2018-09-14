@@ -26,7 +26,7 @@ namespace Bong.Engine.API.Modules.Pages
             [RequestModel] RequestModel<PagesEntity> model)
         {
             await CreatePage(table);
-            return new CreatedResult("", "");
+            return new CreatedResult("", model);
         }
     }
 }

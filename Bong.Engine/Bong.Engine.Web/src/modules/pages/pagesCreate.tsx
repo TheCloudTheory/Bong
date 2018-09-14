@@ -4,12 +4,14 @@ import * as Bong from '../bong';
 import Field from '../../ui/field';
 import Textarea from '../../ui/textarea';
 
-export default class PagesCreate extends Bong.FormModule {
+export default class PagesCreate extends Bong.FormModule<Bong.EntityModule> {
+    protected Module: string;
     protected Title: string;
 
     constructor(props: any) {
         super(props);
 
+        this.Module = 'page';
         this.Title = 'Pages - Create'; 
     }
 

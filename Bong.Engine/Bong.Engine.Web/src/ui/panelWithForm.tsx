@@ -1,7 +1,18 @@
 import * as React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import * as Bong from '../modules/bong';
 
-export class PanelWithForm extends React.Component<PanelWithFormProps> {
+import Repository from '../repository';
+
+export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Component<PanelWithFormProps> {
+
+    private repository: Repository<TModule>
+
+    constructor(props: PanelWithFormProps) {
+        super(props);
+
+        this.repository = new Repository<TModule>();
+    }
 
     render() {
         return (
@@ -26,7 +37,7 @@ export class PanelWithForm extends React.Component<PanelWithFormProps> {
                         <button className="btn" onClick={() => this.props.history.goBack()}>Back</button>
                         </div>
                         <div className="column col-6 text-right">
-                            <button className="btn btn-primary">Save</button>
+                            <button className="btn btn-primary" onClick={() => this.repository.create(this.props.module, {})}>Save</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +49,8 @@ export class PanelWithForm extends React.Component<PanelWithFormProps> {
 
 type PanelWithFormProps = RouteComponentProps<any> & {
     title: string,
-    html: JSX.Element
+    html: JSX.Element,
+    module: string
 }
 
 export default withRouter(PanelWithForm);

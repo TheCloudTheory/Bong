@@ -4,18 +4,17 @@ using System.Net.Http;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs.Extensions.Bindings;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host.Bindings;
-
 
 namespace Bong.Engine.API.Bindings.RequestModel
 {
     public class RequestModelValueBinder : IValueBinder
     {
-        private readonly HttpRequestMessage _req;
+        private readonly HttpRequest _req;
         private readonly ParameterInfo _parameter;
 
-        public RequestModelValueBinder(ParameterInfo parameter, HttpRequestMessage req)
+        public RequestModelValueBinder(ParameterInfo parameter, HttpRequest req)
         {
             _req = req;
             _parameter = parameter;
@@ -37,9 +36,18 @@ namespace Bong.Engine.API.Bindings.RequestModel
         {
             var modelType = _parameter.ParameterType.GenericTypeArguments[0];
             var generic = typeof(RequestModel<>).MakeGenericType(modelType);
-            var instance = Activator.CreateInstance(generic, _req.Content.ReadAsStringAsync().Result);
+            var instance = Activator.CreateInstance(generic, GetRequestBodyAsString(_req.Body).Result);
 
             return Task.FromResult(instance);
+        }
+
+        private async Task<string> GetRequestBodyAsString(Stream stream)
+        {
+            using (var sr = new StreamReader(stream))
+            {
+                var text = await sr.ReadToEndAsync();
+                return text;
+            }
         }
     }
 }
