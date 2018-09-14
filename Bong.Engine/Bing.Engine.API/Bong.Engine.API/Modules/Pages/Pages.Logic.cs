@@ -13,5 +13,10 @@ namespace Bong.Engine.API.Modules.Pages
 
             return result;
         }
+
+        public static Task CreatePage(CloudTable table)
+        {
+            return Task.CompletedTask;
+        }
     }
 }
