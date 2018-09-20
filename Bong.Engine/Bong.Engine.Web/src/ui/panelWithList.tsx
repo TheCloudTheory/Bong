@@ -72,6 +72,8 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
             html.push(<th key={index}>{value}</th>)
         })
 
+        html.push(<th key='9999'></th>)
+
         return html;
     }
 
@@ -89,8 +91,16 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
         var html: Array<JSX.Element> = [];
 
         for (let value in values) {
-            html.push(<td key={value}>{values[value]}</td>)
-        }
+            if(value !== 'id') {
+                html.push(<td key={value}>{values[value]}</td>)
+            }
+        } 
+
+        html.push(
+            <td key="9999" className="text-right">
+                <Link className="btn btn-action btn-primary tooltip" data-tooltip="Edit" to={`${this.props.module}/edit/${values.id}`}><i className="icon icon-edit"></i></Link>
+                <button className="btn btn-action btn-error tooltip" data-tooltip="Delete"><i className="icon icon-delete"></i></button>
+            </td>)
 
         return html;
     }

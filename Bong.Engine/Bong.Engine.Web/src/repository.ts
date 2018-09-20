@@ -8,4 +8,8 @@ export default class Repository<TEntity> {
     public create<TModel>(module: string, model: TModel) : axios.AxiosPromise<TModel> {
         return axios.default.post(module, model);
     }
+
+    public get<TModel>(module: string, id: string): axios.AxiosPromise<TModel> {
+        return axios.default.get(`${module}/${id}`);
+    }
 }

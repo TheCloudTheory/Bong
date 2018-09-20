@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Bong.Engine.API.Bindings.RequestModel
@@ -29,9 +30,9 @@ namespace Bong.Engine.API.Bindings.RequestModel
 
         public ICollection<ValidationResult> ValidationResults => new List<ValidationResult>();
 
-        public HttpResponseMessage CreateBadRequestResponse()
+        public BadRequestResult CreateBadRequestResponse()
         {
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            return new BadRequestResult();
         }
 
         public HttpResponseMessage CreateBadRequestResponse(string errorMessage)

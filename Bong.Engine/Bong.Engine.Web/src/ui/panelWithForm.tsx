@@ -4,6 +4,7 @@ import * as Bong from '../modules/bong';
 
 import Repository from '../repository';
 import {Toast, ToastStatus} from './toast';
+import { AxiosPromise } from 'axios';
 
 export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Component<PanelWithFormProps, PanelWithFormState> {
 
@@ -14,6 +15,18 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
 
         this.state = { isLoading: false, isError: false, isSuccess: false };
         this.repository = new Repository<TModule>();
+    }
+
+    componentDidMount() {
+        if(this.props.fetchAction) {
+            this.props.fetchAction().then(_ => {
+                console.log(_);
+            }).catch(_ => {
+                this.setState({
+                    isError: true
+                })
+            })
+        }
     }
 
     render() {
@@ -99,7 +112,8 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
 type PanelWithFormProps = RouteComponentProps<any> & {
     title: string,
     html: JSX.Element,
-    module: string
+    module: string,
+    fetchAction?: () => AxiosPromise<object>;
 }
 
 type PanelWithFormState = {
