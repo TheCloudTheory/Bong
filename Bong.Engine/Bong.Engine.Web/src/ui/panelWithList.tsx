@@ -57,7 +57,7 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
                         </thead>
                         <tbody>
                             {this.state.data.length > 0 && this.generateRows()}
-                            {this.state.data.length === 0 && <tr className="active"><td colSpan={this.props.columns.length}>No records available</td></tr>}
+                            {this.state.data.length === 0 && <tr className="active"><td colSpan={this.props.columns.length+1}>No records available</td></tr>}
                         </tbody>
                     </table>
                 </div>

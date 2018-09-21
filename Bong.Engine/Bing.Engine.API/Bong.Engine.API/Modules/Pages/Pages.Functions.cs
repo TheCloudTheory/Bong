@@ -52,7 +52,7 @@ namespace Bong.Engine.API.Modules.Pages
             var op = TableOperation.Retrieve<PageEntity>(PartitionKey, id);
             var result = await table.ExecuteAsync(op);
 
-            return new JsonResult(result);
+            return new JsonResult(result.Result);
         }
     }
 }
