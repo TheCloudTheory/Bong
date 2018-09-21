@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Bong.Engine.API.Bindings.RequestModel;
@@ -53,6 +52,20 @@ namespace Bong.Engine.API.Modules.Pages
             var result = await table.ExecuteAsync(op);
 
             return new JsonResult(result.Result);
+        }
+
+        [FunctionName("Pages_Delete")]
+        public static async Task<IActionResult> Pages_Delete(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "page/{id}")]HttpRequest req, 
+            string id,
+            [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
+        {
+            var op = TableOperation.Retrieve<PageEntity>(PartitionKey, id);
+            var entity = await table.ExecuteAsync(op);
+
+            await table.ExecuteAsync(TableOperation.Delete(entity.Result as ITableEntity));
+
+            return new OkResult();
         }
     }
 }

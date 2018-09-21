@@ -12,4 +12,8 @@ export default class Repository<TEntity> {
     public get<TModel>(module: string, id: string): axios.AxiosPromise<TModel> {
         return axios.default.get(`${module}/${id}`);
     }
+
+    public delete(module: string, id: string): axios.AxiosPromise {
+        return axios.default.delete(`${module}/${id}`);
+    }
 }
