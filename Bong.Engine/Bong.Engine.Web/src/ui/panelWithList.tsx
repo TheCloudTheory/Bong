@@ -133,8 +133,8 @@ export default class PanelWithList<TModule extends Bong.EntityModule> extends Re
         });
     }
 
-    private onProceedCallback(): void {
-        this.repository.delete(this.props.module, this.state.idToDelete).then(_ => {
+    private onProceedCallback(): Promise<void> {
+        return this.repository.delete(this.props.module, this.state.idToDelete).then(_ => {
             this.setState({
                 isDeletingActive: false,
                 idToDelete: null,
