@@ -13,7 +13,7 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
     constructor(props: PanelWithFormProps<TModule>) {
         super(props);
 
-        this.state = { isLoading: false, isError: false, isSuccess: false, data: null };
+        this.state = { isLoading: false, isError: false, isSuccess: false, data: null, isDataLoaded: false };
         this.repository = new Repository<TModule>();
     }
 
@@ -21,6 +21,9 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
         if (this.props.fetchAction) {
             this.props.fetchAction().then(_ => {
                 this.props.setValues(_.data);
+                this.setState({
+                    isDataLoaded: true
+                });
             }).catch(_ => {
                 this.setState({
                     isError: true
@@ -47,7 +50,7 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
                     <div className="panel-body">
                         {this.state.isError && <Toast text='Something went wrong!' status={ToastStatus.Error} />}
                         {this.state.isSuccess && <Toast text='Success!' status={ToastStatus.Success} />}
-                        {this.props.html}
+                        {this.state.isDataLoaded && this.props.html}
                     </div>
                     <div className="panel-footer">
                         <div className="columns">
@@ -95,7 +98,7 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
 
             (json as any)[key] = value;
         });
- 
+
         this.repository.create<TModule>(this.props.module, json as TModule).then(_ => {
             this.setState({
                 isLoading: false,
@@ -127,7 +130,8 @@ type PanelWithFormState<TModule> = {
     isLoading: boolean,
     isSuccess: boolean,
     isError: boolean,
-    data: TModule
+    data: TModule,
+    isDataLoaded: boolean
 }
 
 export default withRouter(PanelWithForm);
