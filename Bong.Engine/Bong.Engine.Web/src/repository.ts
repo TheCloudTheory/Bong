@@ -16,4 +16,8 @@ export default class Repository<TEntity> {
     public delete(module: string, id: string): axios.AxiosPromise {
         return axios.default.delete(`${module}/${id}`);
     }
+
+    public update<TModel>(module: string, id: string, data: TModel): axios.AxiosPromise {
+        return axios.default.put(`${module}/${id}`, data);
+    }
 }

@@ -16,7 +16,7 @@ namespace Bong {
         protected abstract get Module(): string;
 
         render() {
-            return (<PanelWithForm module={this.Module} title={this.Title} html={this.getForm()} />);
+            return (<PanelWithForm module={this.Module} title={this.Title} html={this.getForm()} isEdit={false} />);
         }
     }
 
@@ -36,6 +36,8 @@ namespace Bong {
                     html={this.getForm()}
                     fetchAction={() => this.fetchData()}
                     setValues={(model: TModule) => this.setValues(model)}
+                    isEdit={true}
+                    id={this.id} 
                 />
             );
         }

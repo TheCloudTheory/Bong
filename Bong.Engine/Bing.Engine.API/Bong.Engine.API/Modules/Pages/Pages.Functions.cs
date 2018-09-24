@@ -48,9 +48,7 @@ namespace Bong.Engine.API.Modules.Pages
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
-            var op = TableOperation.Retrieve<PageEntity>(PartitionKey, id);
-            var result = await table.ExecuteAsync(op);
-
+            var result = await GetPage(id, table);
             return new JsonResult(result.Result);
         }
 
@@ -60,12 +58,24 @@ namespace Bong.Engine.API.Modules.Pages
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
-            var op = TableOperation.Retrieve<PageEntity>(PartitionKey, id);
-            var entity = await table.ExecuteAsync(op);
-
-            await table.ExecuteAsync(TableOperation.Delete(entity.Result as ITableEntity));
-
+            await DeletePage(id, table);
             return new OkResult();
+        }
+
+        [FunctionName("Pages_Edit")]
+        public static async Task<IActionResult> Pages_Edit(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "page/{id}")]HttpRequest req, 
+            string id,
+            [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table,
+            [RequestModel] RequestModel<PageEntity> model)
+        {
+            if (model.IsNotValid)
+            {
+                return model.CreateBadRequestResponse();
+            }
+
+            await UpdatePage(id, table, model);
+            return new NoContentResult();
         }
     }
 }

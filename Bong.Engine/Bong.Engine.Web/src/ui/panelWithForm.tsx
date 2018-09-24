@@ -99,7 +99,11 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
             (json as any)[key] = value;
         });
 
-        this.repository.create<TModule>(this.props.module, json as TModule).then(_ => {
+        let action = this.props.isEdit === false ? 
+            this.repository.create<TModule>(this.props.module, json as TModule) : 
+            this.repository.update<TModule>(this.props.module, this.props.id, json as TModule);
+
+        action.then(_ => {
             this.setState({
                 isLoading: false,
                 isSuccess: true
@@ -124,6 +128,8 @@ type PanelWithFormProps<TModule> = RouteComponentProps<any> & {
     module: string,
     fetchAction?: () => AxiosPromise<TModule>;
     setValues?: (model: TModule) => void;
+    isEdit: boolean,
+    id?: string
 }
 
 type PanelWithFormState<TModule> = {
