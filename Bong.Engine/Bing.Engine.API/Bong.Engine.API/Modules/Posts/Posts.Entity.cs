@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 
-namespace Bong.Engine.API.Modules.Pages
+namespace Bong.Engine.API.Modules.Posts
 {
-    public static partial class Pages
+    public static partial class Posts
     {
-        public class PageEntity : TableEntity
+        public class PostEntity : TableEntity
         {
-            public PageEntity()
+            public PostEntity()
             {
-                PartitionKey = Posts.Posts.PartitionKey;
+                PartitionKey = Posts.PartitionKey;
                 RowKey = Guid.NewGuid().ToString();
             }
 

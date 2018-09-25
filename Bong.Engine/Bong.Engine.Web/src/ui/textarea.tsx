@@ -6,7 +6,7 @@ export default class Textarea extends React.Component<TextareaProps> {
         return (
             <div className="form-group">
                 <label className="form-label">{this.props.label}</label>
-                <textarea className="form-input" name={this.props.name} placeholder={this.props.placeholder} rows={this.props.rows}>{this.props.text}</textarea>
+                <textarea className="form-input" name={this.props.name} placeholder={this.props.placeholder} rows={this.props.rows} value={this.props.text} />
             </div>
         );
     }

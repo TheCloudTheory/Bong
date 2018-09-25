@@ -16,7 +16,7 @@ export default class PagesEdit extends Bong.EditFormModule<Pages.Entity, PagesEd
     constructor(props: any) {
         super(props);
 
-        this.Module = 'page';
+        this.Module = Pages.Module;
         this.Title = 'Pages - Edit';
         this.state = { id: null, title: '', url: '', body: null };
 
@@ -24,7 +24,7 @@ export default class PagesEdit extends Bong.EditFormModule<Pages.Entity, PagesEd
     }
 
     protected fetchData(): AxiosPromise<Pages.Entity> {
-        return this.repository.get('page', this.id);
+        return this.repository.get(Pages.Module, this.id);
     }
 
     protected setValues(model: Pages.Entity): void {

@@ -1,9 +1,9 @@
 import * as Bong from '../../modules/bong';
 
-export = Pages;
+export = Posts;
 
-namespace Pages {
-    export const Module = 'pages';
+namespace Posts {
+    export const Module = 'posts';
 
     export type Entity = Bong.EntityModule & {
         title: string,

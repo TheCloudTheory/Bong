@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Bong from '../bong';
+import * as Pages from './pages';
 
 import Field from '../../ui/field';
 import Textarea from '../../ui/textarea';
@@ -11,7 +12,7 @@ export default class PagesCreate extends Bong.FormModule<Bong.EntityModule, any>
     constructor(props: any) {
         super(props);
 
-        this.Module = 'page';
+        this.Module = Pages.Module;
         this.Title = 'Pages - Create'; 
     }
 

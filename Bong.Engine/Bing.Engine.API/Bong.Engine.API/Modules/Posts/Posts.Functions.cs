@@ -1,19 +1,19 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Bong.Engine.API.Bindings.RequestModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Bong.Engine.API.Modules.Pages
+namespace Bong.Engine.API.Modules.Posts
 {
-    public static partial class Pages
+    public static partial class Posts
     {
-        [FunctionName("Pages_List")]
-        public static async Task<IActionResult> Pages_List(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "pages")]HttpRequest req, 
+        [FunctionName("Posts_List")]
+        public static async Task<IActionResult> Posts_List(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "posts")]HttpRequest req, 
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
             var result = (await GetPages(table)).Select(_ => new
@@ -27,11 +27,11 @@ namespace Bong.Engine.API.Modules.Pages
             return new JsonResult(result);
         }
 
-        [FunctionName("Pages_Create")]
-        public static async Task<IActionResult> Pages_Create(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "pages")]HttpRequest req, 
+        [FunctionName("Posts_Create")]
+        public static async Task<IActionResult> Posts_Create(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "posts")]HttpRequest req, 
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table,
-            [RequestModel] RequestModel<PageEntity> model)
+            [RequestModel] RequestModel<PostEntity> model)
         {
             if (model.IsNotValid)
             {
@@ -42,9 +42,9 @@ namespace Bong.Engine.API.Modules.Pages
             return new CreatedResult("", model);
         }
 
-        [FunctionName("Pages_Get")]
-        public static async Task<IActionResult> Pages_Get(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "pages/{id}")]HttpRequest req, 
+        [FunctionName("Posts_Get")]
+        public static async Task<IActionResult> Posts_Get(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "posts/{id}")]HttpRequest req, 
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
@@ -52,9 +52,9 @@ namespace Bong.Engine.API.Modules.Pages
             return new JsonResult(result.Result);
         }
 
-        [FunctionName("Pages_Delete")]
-        public static async Task<IActionResult> Pages_Delete(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "pages/{id}")]HttpRequest req, 
+        [FunctionName("Posts_Delete")]
+        public static async Task<IActionResult> Posts_Delete(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "posts/{id}")]HttpRequest req, 
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
@@ -62,12 +62,12 @@ namespace Bong.Engine.API.Modules.Pages
             return new OkResult();
         }
 
-        [FunctionName("Pages_Edit")]
-        public static async Task<IActionResult> Pages_Edit(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "pages/{id}")]HttpRequest req, 
+        [FunctionName("Posts_Edit")]
+        public static async Task<IActionResult> Posts_Edit(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "posts/{id}")]HttpRequest req, 
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table,
-            [RequestModel] RequestModel<PageEntity> model)
+            [RequestModel] RequestModel<PostEntity> model)
         {
             if (model.IsNotValid)
             {
