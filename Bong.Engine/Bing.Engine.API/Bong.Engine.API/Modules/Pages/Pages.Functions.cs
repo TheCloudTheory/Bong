@@ -16,7 +16,7 @@ namespace Bong.Engine.API.Modules.Pages
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "pages")]HttpRequest req, 
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
-            var result = (await GetPages(table)).Select(_ => new
+            var result = (await Repository.List<PageEntity>(table)).Select(_ => new
             {
                 Id = _.RowKey,
                 Title = _.Title,
@@ -38,7 +38,7 @@ namespace Bong.Engine.API.Modules.Pages
                 return model.CreateBadRequestResponse();
             }
 
-            await CreatePage(table, model.Model);
+            await Repository.Create(table, model.Model);
             return new CreatedResult("", model);
         }
 
@@ -48,7 +48,7 @@ namespace Bong.Engine.API.Modules.Pages
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
-            var result = await GetPage(id, table);
+            var result = await Repository.Get<PageEntity>(table, id, PartitionKey);
             return new JsonResult(result.Result);
         }
 
@@ -58,7 +58,7 @@ namespace Bong.Engine.API.Modules.Pages
             string id,
             [Table(TableName, Connection = Constants.ConnectionName)] CloudTable table)
         {
-            await DeletePage(id, table);
+            await Repository.Delete<PageEntity>(table, id, PartitionKey);
             return new OkResult();
         }
 
@@ -74,7 +74,17 @@ namespace Bong.Engine.API.Modules.Pages
                 return model.CreateBadRequestResponse();
             }
 
-            await UpdatePage(id, table, model);
+            await Repository.Update(table, id, PartitionKey, model, (page, requestModel) =>
+            {
+                var validatedModel = requestModel.Model;
+
+                page.Body = validatedModel.Body;
+                page.Title = validatedModel.Title;
+                page.Url = validatedModel.Url;
+
+                return page;
+            });
+
             return new NoContentResult();
         }
     }
