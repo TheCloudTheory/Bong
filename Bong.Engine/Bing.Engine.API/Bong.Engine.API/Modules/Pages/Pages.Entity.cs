@@ -13,6 +13,7 @@ namespace Bong.Engine.API.Modules.Pages
             {
                 PartitionKey = Posts.Posts.PartitionKey;
                 RowKey = Guid.NewGuid().ToString();
+                DateCreated = DateTimeOffset.UtcNow;
             }
 
             [Required]
