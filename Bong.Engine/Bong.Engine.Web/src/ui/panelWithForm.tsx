@@ -29,6 +29,10 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
                     isError: true
                 })
             })
+        } else {
+            this.setState({
+                isDataLoaded: true
+            });
         }
     }
 
@@ -99,8 +103,8 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
             (json as any)[key] = value;
         });
 
-        let action = this.props.isEdit === false ? 
-            this.repository.create<TModule>(this.props.module, json as TModule) : 
+        let action = this.props.isEdit === false ?
+            this.repository.create<TModule>(this.props.module, json as TModule) :
             this.repository.update<TModule>(this.props.module, this.props.id, json as TModule);
 
         action.then(_ => {
