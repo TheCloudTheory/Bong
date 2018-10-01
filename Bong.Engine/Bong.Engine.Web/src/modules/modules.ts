@@ -5,6 +5,7 @@ import PagesEdit from './pages/pagesEdit';
 import PostsList from './posts/postsList';
 import PostsCreate from './posts/postsCreate';
 import PostsEdit from './posts/postsEdit';
+import AuthenticationEdit from './authentication/authenticationEdit';
 
 module.exports = {
     Start,
@@ -13,5 +14,6 @@ module.exports = {
     PagesEdit,
     PostsList,
     PostsCreate,
-    PostsEdit
+    PostsEdit,
+    AuthenticationEdit
 };

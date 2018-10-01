@@ -41,7 +41,15 @@ namespace Bong.Engine.API
         {
             var entity = await Get<T>(table, id, partitionKey);
             var updatedEntity = updateFunc((T) entity.Result, model);
-            var result = await table.ExecuteAsync(TableOperation.Replace(updatedEntity));
+            var result = await table.ExecuteAsync(TableOperation.InsertOrReplace(updatedEntity));
+
+            return result;
+        }
+
+        public static async Task<TableResult> Update<T>(CloudTable table, T newEntity)
+            where T : ITableEntity
+        {
+            var result = await table.ExecuteAsync(TableOperation.InsertOrReplace(newEntity));
 
             return result;
         }

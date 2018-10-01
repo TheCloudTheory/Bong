@@ -16,6 +16,7 @@ export default class Main extends React.Component<{}, {}> {
                         <Route exact path="/posts" component={(modules as any)['PostsList']} />
                         <Route exact path="/posts/create" component={(modules as any)['PostsCreate']} />
                         <Route exact path="/posts/edit/:id" component={withRouter((modules as any)['PostsEdit'])} />
+                        <Route exact path="/authentication" component={(modules as any)['AuthenticationEdit']} />
                 </div>
             </div>
         </BrowserRouter>);

@@ -13,6 +13,10 @@ export default class Repository<TEntity> {
         return axios.default.get(`${module}/${id}`);
     }
 
+    public fetch<TModel>(module: string): axios.AxiosPromise<TModel> {
+        return axios.default.get(`${module}`);
+    }
+
     public delete(module: string, id: string): axios.AxiosPromise {
         return axios.default.delete(`${module}/${id}`);
     }

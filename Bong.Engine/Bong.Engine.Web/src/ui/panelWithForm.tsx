@@ -103,7 +103,7 @@ export class PanelWithForm<TModule extends Bong.EntityModule> extends React.Comp
             (json as any)[key] = value;
         });
 
-        let action = this.props.isEdit === false ?
+        let action = this.props.isEdit === false || typeof(this.props.id) === 'undefined' ?
             this.repository.create<TModule>(this.props.module, json as TModule) :
             this.repository.update<TModule>(this.props.module, this.props.id, json as TModule);
 

@@ -26,6 +26,7 @@ export default class Menu extends React.Component<{}> {
                 <div className="accordion-body">
                     <ul className="menu menu-nav">
                         <li className="menu-item"><Link to="/site">Site</Link></li>
+                        <li className="menu-item"><Link to="/authentication">Authentication</Link></li>
                         <li className="menu-item"><Link to="/email">Email</Link></li>
                         <li className="menu-item"><Link to="/azure">Azure</Link></li>
                     </ul>
