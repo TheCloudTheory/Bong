@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as Bong from '../bong';
 import * as Pages from './pages';
 
-import Field from '../../ui/field';
-import Textarea from '../../ui/textarea';
+import Field from '../../ui/field'; 
 import BongEditor from '../../ui/editor';
 
 export default class PagesCreate extends Bong.FormModule<Bong.EntityModule, any> {
@@ -23,7 +22,6 @@ export default class PagesCreate extends Bong.FormModule<Bong.EntityModule, any>
             <div>
                 <Field name="title" label="Title" type="text" placeholder="Title of a new page" />
                 <Field name="url" label="Url" type="text" />
-                <Textarea label="" name="body" rows={1} text={this.state.body} />
                 <BongEditor stateCallback={(html: string) => this.convertEditorToHtml(html)} />
             </div>
         );

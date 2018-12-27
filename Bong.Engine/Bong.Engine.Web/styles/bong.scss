@@ -25,6 +25,11 @@
     .editor {
         border: 1px solid $gray-color;
 
+        .hidden {
+            height: 0;
+            width: 0;
+        }
+
         button {
             background-color: $gray-color-light;
             border: 1px solid $dark-color;

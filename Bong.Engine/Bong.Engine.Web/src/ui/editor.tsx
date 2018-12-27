@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Editor, EditorState, RichUtils, DefaultDraftBlockRenderMap, ContentBlock } from 'draft-js';
 import { convertToHTML } from 'draft-convert';
+import Textarea from '../ui/textarea';
 
 export default class BongEditor extends React.Component<BongEditorProps, BongEditorState> {
 
@@ -8,7 +9,7 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 
     constructor(props: BongEditorProps) {
         super(props);
-        this.state = { editorState: EditorState.createEmpty() };
+        this.state = { editorState: EditorState.createEmpty(), html: "" };
     }
 
     private setEditor(editor: any) {
@@ -24,7 +25,7 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
     }
 
     private onChange(editorState: EditorState) {
-        this.setState({ editorState });
+        this.setState({ editorState, html: convertToHTML(editorState.getCurrentContent()) });
         this.props.stateCallback(convertToHTML(editorState.getCurrentContent()));
     }
 
@@ -38,6 +39,7 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
             this.onChange(newState);
             return 'handled';
         }
+
         return 'not-handled';
     }
 
@@ -49,14 +51,12 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 
     private blockRenderer(contentBlock: any) {
         const type = contentBlock.getType();
-        console.log(type, contentBlock);
-        if (type === 'MyCustomBlock') { 
+        if (type === 'MyCustomBlock') {
 
         }
     }
 
     private blockStyleFn(contentBlock: ContentBlock): string {
-        console.log(contentBlock);
         return 'foo';
     }
 
@@ -89,6 +89,7 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 
         return (
             <div className="editor" onClick={this.focusEditor.bind(this)}>
+                <Textarea label="" name="body" rows={1} text={this.state.html} isHidden={true} />
                 {buttons}
                 <Editor
                     ref={this.setEditor.bind(this)}
@@ -109,5 +110,6 @@ type BongEditorProps = {
 };
 
 type BongEditorState = {
-    editorState: EditorState
+    editorState: EditorState,
+    html: string
 };
