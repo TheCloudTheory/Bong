@@ -11,7 +11,7 @@ namespace Bong.Engine.API.Modules.Pages
         {
             public PageEntity()
             {
-                PartitionKey = Posts.Posts.PartitionKey;
+                PartitionKey = Pages.PartitionKey;
                 RowKey = Guid.NewGuid().ToString();
                 DateCreated = DateTimeOffset.UtcNow;
             }

@@ -3,7 +3,7 @@ import * as Bong from '../bong';
 import * as Pages from './pages';
 
 import Field from '../../ui/field';
-import Textarea from '../../ui/textarea';
+import BongEditor from '../../ui/editor';
 import Repository from '../../repository';
 import { AxiosPromise } from 'axios';
 
@@ -39,9 +39,9 @@ export default class PagesEdit extends Bong.EditFormModule<Pages.Entity, PagesEd
     protected getForm(): JSX.Element {
         return (
             <div>
-                <Field name='title' label='Title' type='text' value={this.state.title} />
-                <Field name='url' label='Url' type='text' value={this.state.url} />
-                <Textarea name='body' label='' rows={20} text={this.state.body} />
+                <Field name="title" label="Title" type="text" value={this.state.title} />
+                <Field name="url" label="Url" type="text" value={this.state.url} />
+                <BongEditor html={this.state.body} />
             </div>
         );
     }

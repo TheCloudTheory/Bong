@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Editor, EditorState, RichUtils, DefaultDraftBlockRenderMap, ContentBlock } from 'draft-js';
+import { Editor, EditorState, RichUtils, ContentBlock, ContentState, convertFromHTML } from 'draft-js';
 import { convertToHTML } from 'draft-convert';
 import Textarea from '../ui/textarea';
 
@@ -9,7 +9,13 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 
     constructor(props: BongEditorProps) {
         super(props);
-        this.state = { editorState: EditorState.createEmpty(), html: "" };
+
+        this.state = {
+            editorState: typeof (this.props.html) === 'undefined' ?
+                EditorState.createEmpty() :
+                EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(this.props.html).contentBlocks)),
+            html: this.props.html
+        };
     }
 
     private setEditor(editor: any) {
@@ -26,7 +32,6 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 
     private onChange(editorState: EditorState) {
         this.setState({ editorState, html: convertToHTML(editorState.getCurrentContent()) });
-        this.props.stateCallback(convertToHTML(editorState.getCurrentContent()));
     }
 
     componentDidMount() {
@@ -106,7 +111,7 @@ export default class BongEditor extends React.Component<BongEditorProps, BongEdi
 }
 
 type BongEditorProps = {
-    stateCallback(html: string): void
+    html?: string
 };
 
 type BongEditorState = {

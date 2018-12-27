@@ -22,14 +22,8 @@ export default class PagesCreate extends Bong.FormModule<Bong.EntityModule, any>
             <div>
                 <Field name="title" label="Title" type="text" placeholder="Title of a new page" />
                 <Field name="url" label="Url" type="text" />
-                <BongEditor stateCallback={(html: string) => this.convertEditorToHtml(html)} />
+                <BongEditor />
             </div>
         );
-    }
-
-    private convertEditorToHtml(html: string) {
-        this.setState({
-            body: html
-        });
     }
 }
