@@ -21,4 +21,30 @@
             padding: 0;
         }
     }
+
+    .editor {
+        border: 1px solid $gray-color;
+
+        button {
+            background-color: $gray-color-light;
+            border: 1px solid $dark-color;
+            margin: 0.25rem;
+
+            &.bold {
+                font-weight: bold;
+            }
+
+            &.italics {
+                font-style: italic;
+            }
+
+            &.underline {
+                text-decoration: underline;
+            }
+        }
+
+        .DraftEditor-root {
+            padding: 1rem;
+        }
+    }
 }
