@@ -30,6 +30,20 @@ export default class Field extends React.Component<FieldProps, FieldState> {
         this.setState({
             value: event.currentTarget.value
         });
+
+        if(typeof(this.props.onChangeCallback) !== 'undefined') {
+            this.props.onChangeCallback(event.currentTarget.value);
+        }
+    }
+
+    componentWillReceiveProps(...props: any[]) {
+        if(props.length > 0) {
+            let prop = props[0];
+
+            this.setState({
+                value: prop.value
+            });
+        }
     }
 }
 
@@ -38,7 +52,8 @@ type FieldProps = {
     type: string,
     name: string,
     placeholder?: string,
-    value?: any
+    value?: any,
+    onChangeCallback?: (value: string) => void
 }
 
 type FieldState = {

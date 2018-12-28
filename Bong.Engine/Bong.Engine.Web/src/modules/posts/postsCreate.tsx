@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as Bong from '../bong';
 import * as Posts from './posts';
 
-import Field from '../../ui/field';
-import Textarea from '../../ui/textarea';
+import NameUrl from '../../ui/nameUrl';
+import BongEditor from '../../ui/editor';
 
 export default class PostsCreate extends Bong.FormModule<Bong.EntityModule, any> {
     protected Module: string;
@@ -19,9 +19,8 @@ export default class PostsCreate extends Bong.FormModule<Bong.EntityModule, any>
     protected getForm(): JSX.Element {
         return (
             <div>
-                <Field name='title' label='Title' type='text' placeholder='Title of a new post' />
-                <Field name='url' label='Url' type='text' />
-                <Textarea name='body' label='' rows={20} />
+                <NameUrl />
+                <BongEditor />
             </div>
         );
     }
