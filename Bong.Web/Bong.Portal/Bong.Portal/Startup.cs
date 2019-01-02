@@ -19,6 +19,7 @@ namespace Bong.Portal
             }
 
             app.UseMvc(builder => builder.MapRoute("default", "", new {controller = "Page", action = "Index"}));
+            app.UseStaticFiles();
         }
     }
 }

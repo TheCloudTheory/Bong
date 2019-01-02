@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Bong.Portal.Core.Themes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bong.Portal.Controllers
 {
@@ -6,7 +7,7 @@ namespace Bong.Portal.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return new ThemedView("Index");
         }
     }
 }

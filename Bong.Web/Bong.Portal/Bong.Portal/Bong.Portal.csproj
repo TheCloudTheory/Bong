@@ -15,8 +15,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Page\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\themes\Default\images\" />
+    <Folder Include="wwwroot\themes\Default\scripts\" />
+    <Folder Include="wwwroot\themes\Default\styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\themes\Default\views\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
