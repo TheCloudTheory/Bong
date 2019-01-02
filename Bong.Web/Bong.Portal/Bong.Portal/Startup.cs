@@ -18,7 +18,7 @@ namespace Bong.Portal
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(builder => builder.MapRoute("default", "", new {controller = "Page", action = "Index"}));
         }
     }
 }
