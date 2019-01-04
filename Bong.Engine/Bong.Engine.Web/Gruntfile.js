@@ -89,4 +89,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['concat', 'sass', 'copy', 'browserify', 'connect', 'watch']);
     grunt.registerTask('reload', ['concat', 'sass', 'copy', 'browserify']);
+    grunt.registerTask('build', ['concat', 'sass', 'copy', 'browserify']);
 };

@@ -5,7 +5,8 @@
   "main": "./src/app.tsx",
   "types": "./src/app.tsx",
   "scripts": {
-    "start": "grunt"
+    "start": "grunt",
+    "build": "grunt build"
   },
   "author": "The Cloud Theory",
   "license": "MIT",
