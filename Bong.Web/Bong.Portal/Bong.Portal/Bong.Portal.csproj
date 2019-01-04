@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\themes\Default\styles\default.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Controllers\PageController.cs" />
   </ItemGroup>
 
@@ -18,7 +26,10 @@
   <ItemGroup>
     <Folder Include="wwwroot\themes\Default\images\" />
     <Folder Include="wwwroot\themes\Default\scripts\" />
-    <Folder Include="wwwroot\themes\Default\styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
