@@ -18,7 +18,7 @@ export default class PostsEdit extends Bong.EditFormModule<Posts.Entity, PostsEd
 
         this.Module = Posts.Module;
         this.Title = 'Posts - Edit';
-        this.state = { id: null, title: '', url: '', body: null };
+        this.state = { id: null, title: '', url: '', body: null, subtitle: '' };
 
         this.repository = new Repository<Posts.Entity>();
     }
@@ -32,7 +32,8 @@ export default class PostsEdit extends Bong.EditFormModule<Posts.Entity, PostsEd
             id: model.id,
             title: model.title,
             url: model.url,
-            body: model.body
+            body: model.body,
+            subtitle: model.subtitle
         })
     }
 
@@ -41,6 +42,7 @@ export default class PostsEdit extends Bong.EditFormModule<Posts.Entity, PostsEd
             <div>
                 <Field name="title" label="Title" type="text" value={this.state.title} />
                 <Field name="url" label="Url" type="text" value={this.state.url} />
+                <Field name="subtitle" label="Subtitle" type="text" value={this.state.subtitle} />
                 <BongEditor html={this.state.body} />
             </div>
         );
@@ -51,5 +53,6 @@ type PostsEditState = {
     id: string,
     title: string,
     url: string,
-    body: string
+    body: string,
+    subtitle: string
 }

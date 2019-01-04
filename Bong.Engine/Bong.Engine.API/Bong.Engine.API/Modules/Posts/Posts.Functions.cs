@@ -81,6 +81,7 @@ namespace Bong.Engine.API.Modules.Posts
                 post.Body = validatedModel.Body;
                 post.Title = validatedModel.Title;
                 post.Url = validatedModel.Url;
+                post.Subtitle = validatedModel.Subtitle;
 
                 return post;
             });

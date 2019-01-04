@@ -8,6 +8,7 @@ namespace Posts {
     export type Entity = Bong.EntityModule & {
         title: string,
         url: string,
-        body: string
+        body: string,
+        subtitle: string
     }
 }
