@@ -14,16 +14,27 @@
     Layout = "_Layout";
 }
 
-<header class="navbar">
-    <section class="navbar-section">
-        <a href="#" class="btn btn-link">Docs</a>
-        <a href="#" class="btn btn-link">Examples</a>
-    </section>
-    <section class="navbar-center">
-        <strong>BONG</strong>
-    </section>
-    <section class="navbar-section">
-        <a href="#" class="btn btn-link">Twitter</a>
-        <a href="#" class="btn btn-link">GitHub</a>
-    </section>
-</header>
+<div class="container grid-lg">
+    <vc:navbar></vc:navbar>
+    <div class="columns">
+        <div class="column col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title h5">My first post</div>
+                    <div class="card-subtitle text-gray">You can't miss it!</div>
+                </div>
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/1920px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg" class="img-responsive">
+                </div>
+                <div class="card-body">
+                    Creating a simple blog engine is not an easy task.
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">
+                        Read more!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
