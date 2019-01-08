@@ -1,4 +1,4 @@
-﻿namespace Bong.Middlewares.ModuleLoader
+﻿namespace Bong.Common
 {
     public enum BongModuleType
     {

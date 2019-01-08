@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Bong.Middlewares.ModuleLoader;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace Bong
+namespace Bong.Common
 {
-    internal sealed class ModulesState
+    public sealed class ModulesState
     {
         private static readonly List<BongModuleDescription> CurrentlyLoadedModules = new List<BongModuleDescription>();
 

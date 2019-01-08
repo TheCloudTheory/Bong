@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Bong.Middlewares.ModuleLoader;
+using Bong.Common;
 
 namespace Bong.Helpers
 {

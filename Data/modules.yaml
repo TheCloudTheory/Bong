@@ -8,3 +8,8 @@
   file: Bong.Admin.dll
   version:   1.0.0
   type:  core
+-
+  module: Bong.Posts
+  file: Bong.Posts.dll
+  version:   1.0.0
+  type:  external
