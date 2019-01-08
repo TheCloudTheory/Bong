@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Portal", "Core\Bong.Po
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Default", "Themes\Bong.Default\Bong.Default.csproj", "{692F95FD-1D2A-4CBF-9DEF-EBF96C75270F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Admin", "Core\Bong.Admin\Bong.Admin.csproj", "{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Admin", "Core\Bong.Admin\Bong.Admin.csproj", "{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.AdminTheme", "Themes\Bong.AdminTheme\Bong.AdminTheme.csproj", "{ED74C738-93F5-4F5E-8E3F-E03A03528D99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED74C738-93F5-4F5E-8E3F-E03A03528D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED74C738-93F5-4F5E-8E3F-E03A03528D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED74C738-93F5-4F5E-8E3F-E03A03528D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED74C738-93F5-4F5E-8E3F-E03A03528D99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{0BF4BA8E-0AE5-49F2-AFEB-4DC009457251} = {B266DDEC-C78D-4548-978B-6C4DBE8F11AA}
 		{692F95FD-1D2A-4CBF-9DEF-EBF96C75270F} = {9217244B-D33C-434E-95F7-C30A696A33DD}
 		{E7F78ACE-B14E-4C25-A3DE-E84B53FEAC40} = {B266DDEC-C78D-4548-978B-6C4DBE8F11AA}
+		{ED74C738-93F5-4F5E-8E3F-E03A03528D99} = {9217244B-D33C-434E-95F7-C30A696A33DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F481EAE-04F3-4872-BD54-D8D1F4C12CE9}

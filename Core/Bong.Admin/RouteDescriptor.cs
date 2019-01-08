@@ -7,7 +7,10 @@ namespace Bong.Admin
     {
         public IEnumerable<RouteDescription> GetRoutesDescriptions()
         {
-            return new RouteDescription[0];
+            return new[]
+            {
+                new RouteDescription("Admin.Index", "admin", new {controller = "BongAdmin", action = "Index"})
+            };
         }
     }
 }

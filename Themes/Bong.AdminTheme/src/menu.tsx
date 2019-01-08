@@ -5,7 +5,7 @@ export default class Menu extends React.Component<{}> {
 
     render() {
         return (<div className="bong-menu">
-            <img src="images/logo.png" style={{ display: 'block', margin: '1em auto' }} />
+            <img src="/Themes/Bong.AdminTheme/images/logo.png" style={{ display: 'block', margin: '1em auto' }} />
             <div className="accordion">
                 <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden />
                 <label className="accordion-header c-hand" htmlFor="accordion-1">

@@ -3,3 +3,8 @@
   file: Bong.Portal.dll
   version:   1.0.0
   type:  core
+-
+  module: Bong.Admin
+  file: Bong.Admin.dll
+  version:   1.0.0
+  type:  core

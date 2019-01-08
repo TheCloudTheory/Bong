@@ -15,3 +15,5 @@ Core/Bong.Portal/Properties/PublishProfiles/
 Core/Bong.Admin/dist/
 Bong.csproj.user
 *.user
+Themes/Bong.AdminTheme/node_modules/
+Themes/Bong.AdminTheme/dist/

@@ -12,20 +12,8 @@ namespace Bong.Middlewares.ThemeLoader
         {
             try
             {
-                var currentDirectory = Directory.GetCurrentDirectory();
-                var themeAssemblyLocation = Path.Combine(currentDirectory, "Themes", "Bong.Default", "bin", "Debug", "netcoreapp2.1",
-                    "Bong.Default.dll");
-
-                var assembly = Assembly.LoadFile(themeAssemblyLocation);
-
-                // Without adding an assembly as an application part,
-                // view components won't be discoverable
-                builder.AddApplicationPart(assembly);
-
-                File.Copy(themeAssemblyLocation,
-                    Path.Combine(FileSystemHelpers.GetBinariesDirectory(), "Bong.Default.dll"),
-                    false);
-
+                LoadTheme(builder, "Bong.Default");
+                LoadTheme(builder, "Bong.AdminTheme");
             }
             catch (IOException ex)
             {
@@ -33,8 +21,25 @@ namespace Bong.Middlewares.ThemeLoader
             }
             catch (Exception ex)
             {
-
             }
+        }
+
+        private static void LoadTheme(IMvcBuilder builder, string themeName)
+        {
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var themeAssemblyLocation = Path.Combine(currentDirectory, "Themes", themeName, "bin", "Debug",
+                "netcoreapp2.1",
+                $"{themeName}.dll");
+
+            var assembly = Assembly.LoadFile(themeAssemblyLocation);
+
+            // Without adding an assembly as an application part,
+            // view components won't be discoverable
+            builder.AddApplicationPart(assembly);
+
+            File.Copy(themeAssemblyLocation,
+                Path.Combine(FileSystemHelpers.GetBinariesDirectory(), $"{themeName}.dll"),
+                false);
         }
     }
 }

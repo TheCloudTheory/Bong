@@ -12,7 +12,9 @@ namespace Bong.ViewEngine
                 options.ViewLocationFormats.Clear();
                 options.ViewLocationFormats.Add("/Themes/Bong.Default/views/{0}" + RazorViewEngine.ViewExtension);
                 options.ViewLocationFormats.Add("/Themes/Bong.Default/views/Shared/{0}" + RazorViewEngine.ViewExtension);
-                options.ViewLocationFormats.Add("/Themes/Bong.Default/views/Components/{0}" + RazorViewEngine.ViewExtension);
+                options.ViewLocationFormats.Add("/Themes/Bong.Default/views/Components/{0}" + RazorViewEngine.ViewExtension);options.ViewLocationFormats.Add("/Themes/Bong.Default/views/{0}" + RazorViewEngine.ViewExtension);
+
+                options.ViewLocationExpanders.Add(new ViewLocationExpander());
             });
         }
     }
