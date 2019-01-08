@@ -8,3 +8,10 @@ Bong.Web/Bong.Portal/.vs/
 Bong.Web/Bong.Portal/Bong.Portal/bin/
 Bong.Web/Bong.Portal/Bong.Portal/obj/
 .vs/
+bin/
+obj/
+Core/Bong.Admin/node_modules/
+Core/Bong.Portal/Properties/PublishProfiles/
+Core/Bong.Admin/dist/
+Bong.csproj.user
+*.user

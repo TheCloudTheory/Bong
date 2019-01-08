@@ -1,0 +1,22 @@
+﻿@model object
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/Styles/spectre.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/spectre-exp.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/spectre-icons.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/default.min.css" />
+}
+
+@section scripts
+{}
+
+@{
+    ViewBag.Title = "Hello from Bong!";
+    Layout = "_Layout";
+}
+
+<vc:navbar></vc:navbar>
+<div class="container grid-lg">
+    @*<vc:posts></vc:posts>*@
+</div>
