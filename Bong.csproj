@@ -43,5 +43,10 @@
     <ProjectReference Include="Core\Bong.Helpers\Bong.Helpers.csproj" />
     <ProjectReference Include="Core\Bong.Routing\Bong.Routing.csproj" />
   </ItemGroup>
+  
+  <Target Name="CleanSolution" AfterTargets="Clean">
+    <RemoveDir Directories="$(TargetDir)" />
+    <RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />
+  </Target>
 
 </Project>

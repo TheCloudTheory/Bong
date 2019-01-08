@@ -4,6 +4,6 @@ namespace Bong.Menu
 {
     public interface IMenuBuilder
     {
-        void BuildMenu(IList<MenuItem> items);
+        IEnumerable<MenuItem> BuildMenu();
     }
 }

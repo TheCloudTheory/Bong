@@ -13,3 +13,8 @@
   file: Bong.Posts.dll
   version:   1.0.0
   type:  external
+-
+  module: Bong.Menu
+  file: Bong.Menu.dll
+  version:   1.0.0
+  type:  core

@@ -9,7 +9,7 @@ namespace Bong.Admin
         {
             return new[]
             {
-                new RouteDescription("Admin.Index", "admin", new {controller = "BongAdmin", action = "Index"})
+                new RouteDescription("Bong.Admin.Index", "admin", new {controller = "BongAdmin", action = "Index"})
             };
         }
     }
