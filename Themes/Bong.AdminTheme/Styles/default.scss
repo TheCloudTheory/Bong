@@ -1,0 +1,21 @@
+﻿$color1: #2c8bff;
+$color2: #4e98f2;
+$color3: #6ca3e6;
+$color4: #87acd9;
+
+$black: #000;
+$white: #fff;
+
+.navbar {
+    background: $color2;
+    color: $white;
+    margin-bottom: 1rem;
+
+    a.btn {
+        color: $white;
+    }
+}
+
+.card {
+    margin-bottom: 0.5rem;
+}

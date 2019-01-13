@@ -1,23 +1,23 @@
-﻿<!DOCTYPE html>
-<html class="no-js" lang="">
+﻿@model object
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Bong</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@section styles {
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/Styles/spectre.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/styles/spectre-exp.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/styles/spectre-icons.min.css" />
+}
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+@section scripts
+{}
 
-</head>
+@{
+    ViewBag.Title = "Hello from Bong!";
+    Layout = "_Layout";
+}
 
-<body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-<vc:admin-menu></vc:admin-menu>
-</body>
+<div class="columns col-gapless">
+    <div class="column col-2">
+        <vc:admin-menu></vc:admin-menu>
+    </div>
+    <div class="column col-10">Main Space</div>
+</div>
 
-</html>

@@ -1,9 +1,9 @@
 ﻿@model List<Bong.Menu.MenuItem>
 
-<ul>
+<ul class="menu">
     @foreach (var item in Model)
     {
-        <li>
+        <li class="menu-item">
             <a href="@item.Url">@item.Text</a>
         </li>
     }
