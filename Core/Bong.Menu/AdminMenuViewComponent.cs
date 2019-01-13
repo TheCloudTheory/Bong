@@ -8,7 +8,7 @@ namespace Bong.Menu
         public Task<IViewComponentResult> InvokeAsync()
         {
             
-            return Task.FromResult<IViewComponentResult>(View("AdminMenu"));
+            return Task.FromResult<IViewComponentResult>(View("AdminMenu", AdminMenuCache.Items));
         }
     }
 }

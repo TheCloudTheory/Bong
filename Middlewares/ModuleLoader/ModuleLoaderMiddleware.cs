@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Bong.Common;
 using Bong.Helpers;
@@ -18,7 +19,8 @@ namespace Bong.Middlewares.ModuleLoader
         {
             var assemblyName = args.Name.Split(",")[0];
             var directory = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-            var assembly = Assembly.LoadFile(Path.Combine(directory.FullName, assemblyName + ".dll"));
+            var assembly =
+                AssemblyLoader.LoadAssemblyIfNotLoaded(Path.Combine(directory.FullName, assemblyName + ".dll"));
 
             return assembly;
         }

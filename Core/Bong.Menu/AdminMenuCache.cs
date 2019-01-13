@@ -4,6 +4,6 @@ namespace Bong.Menu
 {
     internal sealed class AdminMenuCache
     {
-        public static readonly IList<MenuItem> Items = new List<MenuItem>();
+        public static readonly List<MenuItem> Items = new List<MenuItem>();
     }
 }

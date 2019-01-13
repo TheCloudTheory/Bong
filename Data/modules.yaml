@@ -18,3 +18,8 @@
   file: Bong.Menu.dll
   version:   1.0.0
   type:  core
+-
+  module: Bong.Routing
+  file: Bong.Routing.dll
+  version:   1.0.0
+  type:  core

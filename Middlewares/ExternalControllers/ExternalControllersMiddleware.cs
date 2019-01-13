@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Reflection;
 using Bong.Common;
 using Bong.Helpers;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +12,8 @@ namespace Bong.Middlewares.ExternalControllers
             foreach (var module in ModulesState.LoadedModules)
             {
                 var assemblyPath = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), module.File);
-                builder.AddApplicationPart(Assembly.LoadFile(assemblyPath)).AddControllersAsServices();
+                builder.AddApplicationPart(AssemblyLoader.LoadAssemblyIfNotLoaded(assemblyPath))
+                    .AddControllersAsServices();
             }
         }
     }

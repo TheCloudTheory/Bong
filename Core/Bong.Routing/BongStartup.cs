@@ -21,7 +21,7 @@ namespace Bong.Routing
             foreach (var module in ModulesState.LoadedModules)
             {
                 var assemblyPath = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), module.File);
-                var assemblyInfo = Assembly.LoadFrom(assemblyPath);
+                var assemblyInfo = AssemblyLoader.LoadAssemblyIfNotLoaded(assemblyPath);
 
                 var assemblyRouteDescriptorType =
                     assemblyInfo.ExportedTypes.FirstOrDefault(_ =>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
+using Bong.Common;
 using Bong.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,14 +13,19 @@ namespace Bong.Middlewares.ThemeLoader
             try
             {
                 LoadTheme(builder, "Bong.Default");
-                LoadTheme(builder, "Bong.AdminTheme");
             }
             catch (IOException ex)
             {
                 // Ignore...
             }
-            catch (Exception ex)
+
+            try
             {
+                LoadTheme(builder, "Bong.AdminTheme");
+            }
+            catch (IOException ex)
+            {
+                // Ignore...
             }
         }
 
@@ -31,7 +36,7 @@ namespace Bong.Middlewares.ThemeLoader
                 "netcoreapp2.1",
                 $"{themeName}.dll");
 
-            var assembly = Assembly.LoadFile(themeAssemblyLocation);
+            var assembly = AssemblyLoader.LoadAssemblyIfNotLoaded(themeAssemblyLocation);
 
             // Without adding an assembly as an application part,
             // view components won't be discoverable

@@ -1,1 +1,10 @@
-﻿HIHO ITS ADMIN MENU
+﻿@model List<Bong.Menu.MenuItem>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@item.Url">@item.Text</a>
+        </li>
+    }
+</ul>
