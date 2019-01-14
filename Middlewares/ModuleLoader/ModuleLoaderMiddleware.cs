@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using Bong.Common;
 using Bong.Helpers;
@@ -12,6 +11,7 @@ namespace Bong.Middlewares.ModuleLoader
     {
         public ModuleLoaderMiddleware()
         {
+            InternalLogger.Log($"Executing {nameof(ModuleLoaderMiddleware)}");
             AppDomain.CurrentDomain.AssemblyResolve += BongResolveEventHandler;
         }
 
@@ -35,6 +35,7 @@ namespace Bong.Middlewares.ModuleLoader
                 var fullModulePath = Path.Combine(mainDirectory, moduleDirectory, module.Module, "bin");
                 var moduleFiles = new DirectoryInfo(fullModulePath);
 
+                InternalLogger.Log($"Copying module {module.Module} to \\bin");
                 CopyModuleFilesToBinaries(moduleFiles);
             }
         }
@@ -50,7 +51,7 @@ namespace Bong.Middlewares.ModuleLoader
                 }
                 catch (IOException ex)
                 {
-                    // Ignore...
+                    InternalLogger.Log($"Warning: {ex.Message}");
                 }
             }
         }

@@ -8,6 +8,11 @@ namespace Bong.Middlewares.ThemeLoader
 {
     internal sealed class ThemeLoaderMiddleware
     {
+        public ThemeLoaderMiddleware()
+        {
+            InternalLogger.Log($"Initializing {nameof(ThemeLoaderMiddleware)}");
+        }
+
         public void Invoke(IMvcBuilder builder)
         {
             try
@@ -16,7 +21,7 @@ namespace Bong.Middlewares.ThemeLoader
             }
             catch (IOException ex)
             {
-                // Ignore...
+                InternalLogger.Log($"Warning: {ex.Message}");
             }
 
             try
@@ -25,12 +30,14 @@ namespace Bong.Middlewares.ThemeLoader
             }
             catch (IOException ex)
             {
-                // Ignore...
+                InternalLogger.Log($"Warning: {ex.Message}");
             }
         }
 
         private static void LoadTheme(IMvcBuilder builder, string themeName)
         {
+            InternalLogger.Log($"Loading theme {themeName}");
+
             var currentDirectory = Directory.GetCurrentDirectory();
             var themeAssemblyLocation = Path.Combine(currentDirectory, "Themes", themeName, "bin", "Debug",
                 "netcoreapp2.1",

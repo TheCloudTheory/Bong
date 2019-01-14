@@ -21,6 +21,7 @@ namespace Bong.Menu
                         continue;
                     }
 
+                    InternalLogger.Log($"Building admin menu for module {builder.Assembly.FullName}");
                     var instance = (IAdminMenuBuilder)Activator.CreateInstance(builder);
                     var menuItems = instance.BuildMenu();
 

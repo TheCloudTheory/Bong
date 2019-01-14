@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Bong.Common;
 using Bong.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +19,7 @@ namespace Bong.Routing
         {
             foreach (var module in ModulesState.LoadedModules)
             {
+                InternalLogger.Log($"Building routes for module {module.Module}");
                 var assemblyPath = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), module.File);
                 var assemblyInfo = AssemblyLoader.LoadAssemblyIfNotLoaded(assemblyPath);
 
@@ -40,6 +40,7 @@ namespace Bong.Routing
         {
             foreach (var route in assemblyRoutesDescriptor.GetRoutesDescriptions())
             {
+                InternalLogger.Log($"Mapping route {route.Name}");
                 builder.MapRoute(route.Name, route.Template, route.Defaults);
             }
         }

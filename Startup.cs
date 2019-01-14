@@ -1,4 +1,5 @@
-﻿using Bong.Middlewares;
+﻿using Bong.Common;
+using Bong.Middlewares;
 using Bong.ViewEngine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,8 @@ namespace Bong
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            InternalLogger.Log("Configuring services.");
+
             services
                 .AddMvc()
                 .AddModulesBinariesLoader()
@@ -21,6 +24,8 @@ namespace Bong
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            InternalLogger.Log("Configuring application.");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
