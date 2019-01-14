@@ -10,7 +10,7 @@ namespace Bong.Posts
             return new[]
             {
                 new RouteDescription("Bong.Posts.Admin.ListPosts", "admin/posts",
-                    new {controller = "BongPostsAdmin", action = "List"})
+                    new {area ="Bong.Posts", controller = "Admin", action = "List"})
             };
         }
     }

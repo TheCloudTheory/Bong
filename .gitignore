@@ -17,3 +17,4 @@ Bong.csproj.user
 *.user
 Themes/Bong.AdminTheme/node_modules/
 Themes/Bong.AdminTheme/dist/
+Data/Logs/

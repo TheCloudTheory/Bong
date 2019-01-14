@@ -10,8 +10,12 @@
 
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
-    
-    @RenderSection("styles")
+
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/Styles/spectre.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/styles/spectre-exp.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.AdminTheme/styles/spectre-icons.min.css" />
+
+    @RenderSection("styles", false)
 </head>
 
 <body>
@@ -29,6 +33,6 @@
     </div>
 </div>
 
-@RenderSection("scripts")
+@RenderSection("scripts", false)
 </body>
 </html>
