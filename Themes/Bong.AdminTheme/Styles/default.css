@@ -1,9 +1,14 @@
-﻿.navbar {
-  background: #4e98f2;
-  color: #fff;
-  margin-bottom: 1rem; }
-  .navbar a.btn {
-    color: #fff; }
-
-.card {
-  margin-bottom: 0.5rem; }
+﻿.container {
+  padding: 0; }
+  .container .sidebar {
+    background-color: #87acd9; }
+    .container .sidebar .nav {
+      background-color: #6ca3e6;
+      margin: 0; }
+      .container .sidebar .nav a {
+        color: #fff;
+        display: block; }
+  .container .content {
+    padding: 0 .4rem; }
+    .container .content .module-header .text-right {
+      padding-top: .5em; }

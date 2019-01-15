@@ -6,16 +6,30 @@ $color4: #87acd9;
 $black: #000;
 $white: #fff;
 
-.navbar {
-    background: $color2;
-    color: $white;
-    margin-bottom: 1rem;
+.container {
+    padding: 0;
 
-    a.btn {
-        color: $white;
+    .sidebar {
+        background-color: $color4;
+
+        .nav {
+            background-color: $color3;
+            margin: 0;
+
+            a {
+                color: $white;
+                display: block;
+            }
+        }
     }
-}
 
-.card {
-    margin-bottom: 0.5rem;
+    .content {
+        padding: 0 .4rem;
+
+        .module-header {
+            .text-right {
+                padding-top: .5em;
+            }
+        }
+    }
 }
