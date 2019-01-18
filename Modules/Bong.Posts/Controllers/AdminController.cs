@@ -1,4 +1,8 @@
-﻿using Bong.AzureStorage;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Bong.AzureStorage;
+using Bong.Posts.Models;
+using Bong.Posts.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bong.Posts.Controllers
@@ -12,9 +16,11 @@ namespace Bong.Posts.Controllers
             _provider = provider;
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            return View();
+            var posts = (await _provider.List<PostEntity>("posts")).ToArray();
+
+            return View(new ListViewModel(posts));
         }
     }
 }
