@@ -23,7 +23,7 @@ namespace Bong.Middlewares
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             foreach (var module in modulesState.LoadedModules)
             {
-                InternalLogger.Log($"Registering dependency for module: {module.Module}");
+                InternalLogger.Log($"Registering services for module: {module.Module}");
 
                 var assembly = assemblies.First(_ => _.FullName.Contains(module.Module));
                 var type = assembly.ExportedTypes.FirstOrDefault(_ => _.Name == "BongServices");

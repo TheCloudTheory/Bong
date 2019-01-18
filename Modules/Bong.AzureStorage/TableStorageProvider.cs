@@ -1,14 +1,18 @@
-﻿using Bong.Storage;
-using Microsoft.WindowsAzure.Storage;
+﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Bong.AzureStorage
 {
-    public class AzureStorage : IStorage
+    public interface ITableStorageProvider
+    {
+
+    }
+
+    public class TableStorageProvider : ITableStorageProvider
     {
         private CloudTableClient _tableClient;
 
-        public void Initialize()
+        public TableStorageProvider()
         {
             var account = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
 
