@@ -16,6 +16,12 @@ namespace Bong.Middlewares
                 throw new ArgumentNullException(nameof(app));
             }
 
+            var deserializer = (IDataDeserializer)app.ApplicationServices.GetService(typeof(IDataDeserializer));
+            var modulesState = (IModulesState)app.ApplicationServices.GetService(typeof(IModulesState));
+
+            var context = new BongContext(app, deserializer.Deserialize<Installation>("installation"),
+                modulesState.LoadedModules);
+
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 var startup = assembly.ExportedTypes.FirstOrDefault(_ => _.Name == "BongStartup");
@@ -26,7 +32,7 @@ namespace Bong.Middlewares
 
                 InternalLogger.Log($"Executing startup for {assembly.FullName}");
                 var instance = Activator.CreateInstance(startup);
-                startup.GetMethod("Configure").Invoke(instance, new object[] {app});
+                startup.GetMethod("Configure").Invoke(instance, new object[] {context});
             }
 
             return app;

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Linq;
 using Bong.Common;
-using Microsoft.AspNetCore.Builder;
 
 namespace Bong.Menu
 {
     public class BongStartup
     {
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IBongContext ctx)
         {
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (ModulesState.LoadedModules.Any(_ => _.Module == assembly.GetName().Name))
+                if (ctx.LoadedModules.Any(_ => _.Module == assembly.GetName().Name))
                 {
                     var builder =
                         assembly.ExportedTypes.FirstOrDefault(_ =>

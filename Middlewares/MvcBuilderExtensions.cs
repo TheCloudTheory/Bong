@@ -1,4 +1,5 @@
 ﻿using System;
+using Bong.Common;
 using Bong.Middlewares.ExternalControllers;
 using Bong.Middlewares.ModuleLoader;
 using Bong.Middlewares.ThemeLoader;
@@ -6,29 +7,29 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Bong.Middlewares
 {
-    public static class MvcBuilderExtensions
+    internal static class MvcBuilderExtensions
     {
-        public static IMvcBuilder AddModulesBinariesLoader(this IMvcBuilder builder)
+        public static IMvcBuilder AddModulesBinariesLoader(this IMvcBuilder builder, IModulesState modulesState)
         {
             if (builder == null)
             {
                 throw new ArgumentNullException(nameof(builder));
             }
 
-            var middleware = new ModuleLoaderMiddleware();
+            var middleware = new ModuleLoaderMiddleware(modulesState);
             middleware.Invoke(builder);
 
             return builder;
         }
 
-        public static IMvcBuilder AddExternalControllersLoader(this IMvcBuilder builder)
+        public static IMvcBuilder AddExternalControllersLoader(this IMvcBuilder builder, IModulesState modulesState)
         {
             if (builder == null)
             {
                 throw new ArgumentNullException(nameof(builder));
             }
 
-            var middleware = new ExternalControllersMiddleware();
+            var middleware = new ExternalControllersMiddleware(modulesState);
             middleware.Invoke(builder);
 
             return builder;

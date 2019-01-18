@@ -7,14 +7,17 @@ namespace Bong.Middlewares.ExternalControllers
 {
     internal sealed class ExternalControllersMiddleware
     {
-        public ExternalControllersMiddleware()
+        private readonly IModulesState _modulesState;
+
+        public ExternalControllersMiddleware(IModulesState modulesState)
         {
+            _modulesState = modulesState;
             InternalLogger.Log($"Initializing {nameof(ExternalControllersMiddleware)}");
         }
 
         public void Invoke(IMvcBuilder builder)
         {
-            foreach (var module in ModulesState.LoadedModules)
+            foreach (var module in _modulesState.LoadedModules)
             {
                 InternalLogger.Log($"Adding external controllers from {module.Module} module");
                 var assemblyPath = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), module.File);

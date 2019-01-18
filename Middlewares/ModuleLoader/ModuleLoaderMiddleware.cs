@@ -9,8 +9,11 @@ namespace Bong.Middlewares.ModuleLoader
 {
     internal sealed class ModuleLoaderMiddleware
     {
-        public ModuleLoaderMiddleware()
+        private readonly IModulesState _modulesState;
+
+        public ModuleLoaderMiddleware(IModulesState modulesState)
         {
+            _modulesState = modulesState;
             InternalLogger.Log($"Executing {nameof(ModuleLoaderMiddleware)}");
             AppDomain.CurrentDomain.AssemblyResolve += BongResolveEventHandler;
         }
@@ -29,7 +32,7 @@ namespace Bong.Middlewares.ModuleLoader
         {
             var mainDirectory = Directory.GetCurrentDirectory();
 
-            foreach (var module in ModulesState.LoadedModules)
+            foreach (var module in _modulesState.LoadedModules)
             {
                 var moduleDirectory = module.Type == BongModuleType.Core ? "Core" : "Modules";
                 var fullModulePath = Path.Combine(mainDirectory, moduleDirectory, module.Module, "bin");

@@ -13,10 +13,16 @@ namespace Bong
         {
             InternalLogger.Log("Configuring services.");
 
+            var deserializer = new DataDeserializer();
+            var modulesState = new ModulesState(deserializer);
+
+            services.AddSingleton<IDataDeserializer>(deserializer);
+            services.AddSingleton<IModulesState>(modulesState);
+
             services
                 .AddMvc()
-                .AddModulesBinariesLoader()
-                .AddExternalControllersLoader()
+                .AddModulesBinariesLoader(modulesState)
+                .AddExternalControllersLoader(modulesState)
                 .AddThemeLoader();
 
             ViewEngineSetter.ConfigureBongEcosystem(services);

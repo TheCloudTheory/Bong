@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Bong.Common;
@@ -10,14 +11,14 @@ namespace Bong.Routing
 {
     public class BongStartup
     {
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IBongContext ctx)
         {
-            app.UseMvc(BuildRoutes);
+            ctx.Builder.UseMvc(builder => BuildRoutes(builder, ctx.LoadedModules));
         }
 
-        private static void BuildRoutes(IRouteBuilder builder)
+        private static void BuildRoutes(IRouteBuilder builder, IEnumerable<BongModuleDescription> loadedModules)
         {
-            foreach (var module in ModulesState.LoadedModules)
+            foreach (var module in loadedModules)
             {
                 InternalLogger.Log($"Building routes for module {module.Module}");
                 var assemblyPath = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), module.File);
