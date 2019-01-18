@@ -49,8 +49,11 @@ namespace Bong.Middlewares.ModuleLoader
             {
                 try
                 {
-                    File.Copy(file.FullName, Path.Combine(FileSystemHelpers.GetBinariesDirectory(), file.Name),
-                        false);
+                    var destinationFilename = Path.Combine(FileSystemHelpers.GetBinariesDirectory(), file.Name);
+                    if(File.Exists(destinationFilename) == false)
+                    {
+                        File.Copy(file.FullName, destinationFilename, false);
+                    }
                 }
                 catch (IOException ex)
                 {
