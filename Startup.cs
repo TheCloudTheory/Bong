@@ -15,15 +15,20 @@ namespace Bong
 
             var deserializer = new DataDeserializer();
             var modulesState = new ModulesState(deserializer);
+            var installationProvider = new InstallationProvider(deserializer);
 
             services.AddSingleton<IDataDeserializer>(deserializer);
             services.AddSingleton<IModulesState>(modulesState);
+            services.AddSingleton<IInstallationProvider>(installationProvider);
 
             services
                 .AddMvc()
                 .AddModulesBinariesLoader(modulesState)
                 .AddExternalControllersLoader(modulesState)
                 .AddThemeLoader();
+
+            services.AddStorageProvider(installationProvider);
+            services.RegisterDependencies(modulesState);
 
             ViewEngineSetter.ConfigureBongEcosystem(services);
         }

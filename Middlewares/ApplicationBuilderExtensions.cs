@@ -16,11 +16,12 @@ namespace Bong.Middlewares
                 throw new ArgumentNullException(nameof(app));
             }
 
-            var deserializer = (IDataDeserializer)app.ApplicationServices.GetService(typeof(IDataDeserializer));
             var modulesState = (IModulesState)app.ApplicationServices.GetService(typeof(IModulesState));
+            var installationProvider =
+                (IInstallationProvider) app.ApplicationServices.GetService(typeof(IInstallationProvider));
 
-            var context = new BongContext(app, deserializer.Deserialize<Installation>("installation"),
-                modulesState.LoadedModules);
+            var context = new BongContext(app, installationProvider.Installation,
+                modulesState.LoadedModules, app.ApplicationServices);
 
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {

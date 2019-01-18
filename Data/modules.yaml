@@ -1,25 +1,35 @@
 ﻿-
   module: Bong.Portal
   file: Bong.Portal.dll
-  version:   1.0.0
+  version: 1.0.0
   type:  core
 -
   module: Bong.Admin
   file: Bong.Admin.dll
-  version:   1.0.0
+  version: 1.0.0
   type:  core
--
-  module: Bong.Posts
-  file: Bong.Posts.dll
-  version:   1.0.0
-  type:  external
 -
   module: Bong.Menu
   file: Bong.Menu.dll
-  version:   1.0.0
+  version: 1.0.0
   type:  core
 -
   module: Bong.Routing
   file: Bong.Routing.dll
-  version:   1.0.0
+  version: 1.0.0
   type:  core
+-
+  module: Bong.Storage
+  file: Bong.Storage.dll
+  version: 1.0.0
+  type:  core
+-
+  module: Bong.Posts
+  file: Bong.Posts.dll
+  version: 1.0.0
+  type:  external
+-
+  module: Bong.AzureStorage
+  file: Bong.AzureStorage.dll
+  version: 1.0.0
+  type:  external

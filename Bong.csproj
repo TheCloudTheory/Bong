@@ -46,6 +46,7 @@
     <ProjectReference Include="Core\Bong.Common\Bong.Common.csproj" />
     <ProjectReference Include="Core\Bong.Helpers\Bong.Helpers.csproj" />
     <ProjectReference Include="Core\Bong.Routing\Bong.Routing.csproj" />
+    <ProjectReference Include="Core\Bong.Storage\Bong.Storage.csproj" />
   </ItemGroup>
   
   <Target Name="CleanSolution" AfterTargets="Clean">
