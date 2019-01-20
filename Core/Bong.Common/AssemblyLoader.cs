@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -15,6 +16,12 @@ namespace Bong.Common
             if (loadedAssembly != null)
             {
                 return loadedAssembly;
+            }
+
+            if (File.Exists(assemblyLocation) == false)
+            {
+                InternalLogger.Log($"Could not load {assemblyLocation}");
+                return null;
             }
 
             var assembly = Assembly.LoadFile(assemblyLocation);

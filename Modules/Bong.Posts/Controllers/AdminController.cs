@@ -20,7 +20,23 @@ namespace Bong.Posts.Controllers
         {
             var posts = (await _provider.List<PostEntity>("posts")).ToArray();
 
-            return View(new ListViewModel(posts));
+            return View("List", new ListViewModel(posts));
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateViewModel model)
+        {
+            var post = new PostEntity(model);
+
+            await _provider.Create(post, "posts");
+
+            return await List();
         }
     }
 }
