@@ -28,7 +28,7 @@
                 <td>@post.Title</td>
                 <td>@post.Url</td>
                 <td>
-                    <a href="@Url.Action("Create")" class="btn">Edit</a>
+                    <a href="@Url.Action("Edit", new { id = post.Id })" class="btn">Edit</a>
                 </td>
             </tr>
         }

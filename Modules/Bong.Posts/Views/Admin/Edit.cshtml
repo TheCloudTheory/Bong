@@ -1,19 +1,20 @@
 ﻿@model Bong.Posts.ViewModels.PostViewModel
+
 @{
     Layout = "_Layout";
 }
 
 <div class="columns module-header">
     <div class="column">
-        <h1>Create a post</h1>
+        <h1>Edit a post</h1>
     </div>
 </div>
 
 @using (Html.BeginForm(FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(_ => _.Title, new { @class = "form-label"})
-        @Html.TextBoxFor(_ => _.Title, new { @class = "form-input"})
+        @Html.LabelFor(_ => _.Title, new { @class = "form-label" })
+        @Html.TextBoxFor(_ => _.Title, new { @class = "form-input" })
     </div>
     <div class="form-group">
         @Html.LabelFor(_ => _.Url, new { @class = "form-label" })

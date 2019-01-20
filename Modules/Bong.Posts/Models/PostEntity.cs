@@ -12,7 +12,7 @@ namespace Bong.Posts.Models
             RowKey = Guid.NewGuid().ToString();
         }
 
-        public PostEntity(CreateViewModel model)
+        public PostEntity(PostViewModel model)
             : this()
         {
             Title = model.Title;

@@ -16,12 +16,15 @@ namespace Bong.Posts.ViewModels
 
         public class Post
         {
-            public Post(PostEntity postEntity)
+            public Post(PostEntity post)
             {
-                Title = postEntity.Title;
-                Url = postEntity.Url;
-                DateCreated = postEntity.DateCreated;
+                Id = post.RowKey;
+                Title = post.Title;
+                Url = post.Url;
+                DateCreated = post.DateCreated;
             }
+
+            public string Id { get; }
 
             public DateTimeOffset DateCreated { get; }
 

@@ -30,11 +30,34 @@ namespace Bong.Posts.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateViewModel model)
+        public async Task<IActionResult> Create(PostViewModel model)
         {
             var post = new PostEntity(model);
 
             await _provider.Create(post, "posts");
+
+            return await List();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            var post = await _provider.Get<PostEntity>("post", id, "posts");
+            var model = new PostViewModel(post);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, PostViewModel model)
+        {
+            var post = await _provider.Get<PostEntity>("post", id, "posts");
+
+            post.Url = model.Url;
+            post.Body = model.Body;
+            post.Title = model.Title;
+
+            await _provider.Save(post, "posts");
 
             return await List();
         }
