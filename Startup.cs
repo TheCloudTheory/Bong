@@ -28,6 +28,7 @@ namespace Bong
                 .AddThemeLoader();
 
             services.AddStorageProvider(installationProvider);
+            services.AddSecurityProvider(installationProvider);
             services.RegisterDependencies(modulesState);
 
             ViewEngineSetter.ConfigureBongEcosystem(services);

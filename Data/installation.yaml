@@ -1,1 +1,2 @@
 ﻿storageProvider: "Bong.AzureStorage"
+securityProvider: "Bong.Security.Basic"

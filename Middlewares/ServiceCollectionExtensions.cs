@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Bong.Common;
+using Bong.Security;
 using Bong.Storage;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -36,6 +37,15 @@ namespace Bong.Middlewares
                 var instance = Activator.CreateInstance(type);
                 type.GetMethod("Register").Invoke(instance, new object[] {serviceCollection});
             }
+        }
+
+        public static void AddSecurityProvider(this IServiceCollection serviceCollection,
+            IInstallationProvider installationProvider)
+        {
+            var startup = new SecurityStartup(installationProvider);
+            var security = startup.GetSecurity();
+
+            serviceCollection.AddSingleton(security);
         }
     }
 }
