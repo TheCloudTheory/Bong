@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bong.Routing\Bong.Routing.csproj" />
+    <ProjectReference Include="..\Bong.Security\Bong.Security.csproj" />
   </ItemGroup>
 
 </Project>

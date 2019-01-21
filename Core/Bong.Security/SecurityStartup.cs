@@ -13,15 +13,17 @@ namespace Bong.Security
             _installationProvider = installationProvider;
         }
 
-        public ISecurityProvider GetSecurity()
+        public IAuthenticationProvider GetSecurity()
         {
+            InternalLogger.Log("Configuring security.");
+
             var loadedModules = AppDomain.CurrentDomain.GetAssemblies();
             var securityProviderAssembly = loadedModules.First(_ =>
                 _.FullName.Contains(_installationProvider.Installation.SecurityProvider));
-            var securityProvider =
-                securityProviderAssembly.ExportedTypes.First(_ => typeof(ISecurityProvider).IsAssignableFrom(_));
+            var authenticationProvider =
+                securityProviderAssembly.ExportedTypes.First(_ => typeof(IAuthenticationProvider).IsAssignableFrom(_));
 
-            var instance = (ISecurityProvider)Activator.CreateInstance(securityProvider);
+            var instance = (IAuthenticationProvider)Activator.CreateInstance(authenticationProvider);
             return instance;
         }
     }

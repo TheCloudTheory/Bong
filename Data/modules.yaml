@@ -24,6 +24,11 @@
   version: 1.0.0
   type:  core
 -
+  module: Bong.Security
+  file: Bong.Security.dll
+  version: 1.0.0
+  type:  core
+-
   module: Bong.Posts
   file: Bong.Posts.dll
   version: 1.0.0
@@ -31,5 +36,10 @@
 -
   module: Bong.AzureStorage
   file: Bong.AzureStorage.dll
+  version: 1.0.0
+  type:  external
+-
+  module: Bong.Security.Basic
+  file: Bong.Security.Basic.dll
   version: 1.0.0
   type:  external
