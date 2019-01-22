@@ -8,7 +8,7 @@ namespace Bong.Security.Basic
     {
         public Task<ChallengeResult> Challenge(HttpRequest request)
         {
-            if (request.Headers.ContainsKey("Bong.Security.Token"))
+            if (request.Cookies.ContainsKey("Bong.Security.Basic.Token"))
             {
                 return Task.FromResult(new ChallengeResult
                 {
@@ -16,7 +16,7 @@ namespace Bong.Security.Basic
                 });
             }
 
-            return Task.FromResult(new ChallengeResult()
+            return Task.FromResult(new ChallengeResult
             {
                 Action = new RedirectResult("~/login")
             });

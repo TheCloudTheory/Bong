@@ -25,6 +25,13 @@ namespace Bong.Middlewares
 
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
+                if (modulesState.LoadedModules.Any(_ => assembly.FullName.Contains(_.Module)) == false)
+                {
+                    continue;
+                }
+
+                InternalLogger.Log($"Searching startup for {assembly.FullName}");
+
                 var startup = assembly.ExportedTypes.FirstOrDefault(_ => _.Name == "BongStartup");
                 if (startup == null)
                 {
