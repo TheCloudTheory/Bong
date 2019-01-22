@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Bong.Routing\Bong.Routing.csproj" />
     <ProjectReference Include="..\..\Core\Bong.Security\Bong.Security.csproj" />
   </ItemGroup>
 

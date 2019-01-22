@@ -1,6 +1,5 @@
 ﻿using System;
 using Bong.Security;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Bong.Admin.Filters
@@ -27,9 +26,10 @@ namespace Bong.Admin.Filters
                 return;
             }
 
-            if (_provider.Challenge(context.HttpContext.Request).Result.IsAuthenticated == false)
+            var challengeResult = _provider.Challenge(context.HttpContext.Request).Result;
+            if (challengeResult.IsAuthenticated == false)
             {
-                context.Result = new RedirectResult("~/Login");
+                context.Result = challengeResult.Action;
             }
         }
     }

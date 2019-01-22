@@ -1,0 +1,18 @@
+﻿@model Bong.Security.Basic.ViewModels.LoginViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(_ => _.Login, new { @class = "form-label" })
+        @Html.TextBoxFor(_ => _.Login, new { @class = "form-input" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(_ => _.Password, new { @class = "form-label" })
+        @Html.PasswordFor(_ => _.Password, new { @class = "form-input" })
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+}

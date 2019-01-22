@@ -10,15 +10,25 @@
 
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
-    
-    @RenderSection("styles")
+
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/Styles/spectre.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/spectre-exp.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/spectre-icons.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Themes/Bong.Default/styles/default.min.css" />
+
+    @RenderSection("styles", false)
 </head>
 
 <body>
-<!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-@RenderBody()
-@RenderSection("scripts")
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <vc:navbar></vc:navbar>
+    <div class="container grid-lg">
+        @RenderBody()
+    </div>
+
+    @RenderSection("scripts", false)
 </body>
 </html>
