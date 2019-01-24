@@ -51,7 +51,7 @@ namespace Bong
                 services.Configure<MvcOptions>(configure => ConfigureFilters(configure, modulesState));
 
                 services.AddStorageProvider(installationProvider, Configuration);
-                services.AddSecurityProvider(installationProvider);
+                services.AddSecurityProvider(installationProvider, Configuration);
                 services.RegisterDependencies(modulesState);
 
                 ViewEngineSetter.ConfigureBongEcosystem(services);

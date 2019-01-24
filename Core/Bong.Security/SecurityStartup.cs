@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Linq;
 using Bong.Common;
+using Microsoft.Extensions.Configuration;
 
 namespace Bong.Security
 {
     public class SecurityStartup
     {
         private readonly IInstallationProvider _installationProvider;
+        private readonly IConfigurationRoot _configuration;
 
-        public SecurityStartup(IInstallationProvider installationProvider)
+        public SecurityStartup(IInstallationProvider installationProvider, IConfigurationRoot configuration)
         {
             _installationProvider = installationProvider;
+            _configuration = configuration;
         }
 
         public IAuthenticationProvider GetSecurity()
@@ -23,7 +26,9 @@ namespace Bong.Security
             var authenticationProvider =
                 securityProviderAssembly.ExportedTypes.First(_ => typeof(IAuthenticationProvider).IsAssignableFrom(_));
 
-            var instance = (IAuthenticationProvider)Activator.CreateInstance(authenticationProvider);
+            var ctor = authenticationProvider.GetConstructor(new[] { typeof(IConfigurationRoot)});
+            var instance = (IAuthenticationProvider)ctor.Invoke(new object[] {_configuration});
+
             return instance;
         }
     }

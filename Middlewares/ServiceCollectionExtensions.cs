@@ -41,9 +41,9 @@ namespace Bong.Middlewares
         }
 
         public static void AddSecurityProvider(this IServiceCollection serviceCollection,
-            IInstallationProvider installationProvider)
+            IInstallationProvider installationProvider, IConfigurationRoot configuration)
         {
-            var startup = new SecurityStartup(installationProvider);
+            var startup = new SecurityStartup(installationProvider, configuration);
             var security = startup.GetSecurity();
 
             serviceCollection.AddSingleton(security);

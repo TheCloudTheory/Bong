@@ -7,10 +7,12 @@ namespace Bong.Security.Basic.Controllers
     public class LoginController : Controller
     {
         private readonly IConfigurationRoot _configuration;
+        private readonly IAuthenticationLogic _authenticationLogic;
 
-        public LoginController(IConfigurationRoot configuration)
+        public LoginController(IConfigurationRoot configuration, IAuthenticationLogic authenticationLogic)
         {
             _configuration = configuration;
+            _authenticationLogic = authenticationLogic;
         }
 
         public IActionResult Index()
@@ -29,7 +31,8 @@ namespace Bong.Security.Basic.Controllers
                 return View();
             }
 
-            HttpContext.Response.Cookies.Append("Bong.Security.Basic.Token", "some_value");
+            var token = _authenticationLogic.GetToken();
+            HttpContext.Response.Cookies.Append("Bong.Security.Basic.Token", token);
 
             return Redirect("~/admin");
         } 
