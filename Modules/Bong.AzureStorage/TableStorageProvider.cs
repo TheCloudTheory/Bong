@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Bong.AzureStorage
@@ -22,11 +21,9 @@ namespace Bong.AzureStorage
     {
         private readonly CloudTableClient _tableClient;
 
-        public TableStorageProvider()
+        public TableStorageProvider(IAzureStorage storage)
         {
-            var account = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
-
-            _tableClient = account.CreateCloudTableClient();
+            _tableClient = storage.TableClient;
         }
 
         public async Task<IEnumerable<T>> List<T>(string tableName) where T : TableEntity, new()

@@ -3,6 +3,7 @@ using System.Linq;
 using Bong.Common;
 using Bong.Security;
 using Bong.Storage;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bong.Middlewares
@@ -10,9 +11,9 @@ namespace Bong.Middlewares
     internal static class ServiceCollectionExtensions
     {
         public static void AddStorageProvider(this IServiceCollection serviceCollection,
-            IInstallationProvider installationProvider)
+            IInstallationProvider installationProvider, IConfigurationRoot configuration)
         {
-            var startup = new StorageStartup(installationProvider);
+            var startup = new StorageStartup(installationProvider, configuration);
             var storage = startup.GetStorage();
 
             serviceCollection.AddSingleton(storage);

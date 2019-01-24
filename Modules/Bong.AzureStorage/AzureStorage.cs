@@ -1,18 +1,27 @@
 ﻿using Bong.Storage;
+using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Bong.AzureStorage
 {
-    public class AzureStorage : IStorage
+    public class AzureStorage : IStorage, IAzureStorage
     {
-        private CloudTableClient _tableClient;
+        private readonly IConfigurationRoot _configuration;
+        
+        public CloudTableClient TableClient { get; private set; }
+
+        public AzureStorage(IConfigurationRoot configuration)
+        {
+            _configuration = configuration;
+        }
 
         public void Initialize()
         {
-            var account = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
+            var connectionString = _configuration.GetConnectionString("Bong.AzureStorage");
+            var account = CloudStorageAccount.Parse(connectionString);
 
-            _tableClient = account.CreateCloudTableClient();
+            TableClient = account.CreateCloudTableClient();
         }
     }
 }
