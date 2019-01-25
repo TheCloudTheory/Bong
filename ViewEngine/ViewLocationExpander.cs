@@ -17,6 +17,7 @@ namespace Bong.ViewEngine
             {
                 var locations = new[]
                 {
+                    "/Modules/{2}/Views/{1}/{0}" + RazorViewEngine.ViewExtension,
                     "/Themes/Bong.AdminTheme/views/{0}" + RazorViewEngine.ViewExtension,
                     "/Themes/Bong.AdminTheme/views/Shared/{0}" + RazorViewEngine.ViewExtension,
                     "/Themes/Bong.AdminTheme/views/Components/{0}" + RazorViewEngine.ViewExtension

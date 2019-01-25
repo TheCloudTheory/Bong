@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Bong.Menu\Bong.Menu.csproj" />
+    <ProjectReference Include="..\..\Core\Bong.Routing\Bong.Routing.csproj" />
+  </ItemGroup>
+
+</Project>

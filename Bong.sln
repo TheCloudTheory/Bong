@@ -33,9 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Storage", "Core\Bong.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.AzureStorage", "Modules\Bong.AzureStorage\Bong.AzureStorage.csproj", "{EC28BF06-2D3E-41D2-98AB-5EF35172C230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Security", "Core\Bong.Security\Bong.Security.csproj", "{90D7F086-F352-4F82-AE03-EBE75094F26F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Security", "Core\Bong.Security\Bong.Security.csproj", "{90D7F086-F352-4F82-AE03-EBE75094F26F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Security.Basic", "Modules\Bong.Security.Basic\Bong.Security.Basic.csproj", "{4CAC865E-7618-4D07-8680-8950D8DEA94B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Security.Basic", "Modules\Bong.Security.Basic\Bong.Security.Basic.csproj", "{4CAC865E-7618-4D07-8680-8950D8DEA94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Modules", "Modules\Bong.Modules\Bong.Modules.csproj", "{3225BC25-98D4-47BB-BB1D-F440F471AB71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{4CAC865E-7618-4D07-8680-8950D8DEA94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CAC865E-7618-4D07-8680-8950D8DEA94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CAC865E-7618-4D07-8680-8950D8DEA94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{EC28BF06-2D3E-41D2-98AB-5EF35172C230} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
 		{90D7F086-F352-4F82-AE03-EBE75094F26F} = {B266DDEC-C78D-4548-978B-6C4DBE8F11AA}
 		{4CAC865E-7618-4D07-8680-8950D8DEA94B} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
+		{3225BC25-98D4-47BB-BB1D-F440F471AB71} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F481EAE-04F3-4872-BD54-D8D1F4C12CE9}
