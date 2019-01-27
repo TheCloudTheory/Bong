@@ -15,6 +15,8 @@ namespace Bong.AzureStorage
         Task<bool> Exists(string partitionKey, string rowKey, string tableName);
 
         Task<bool> Save(ITableEntity entity, string tableName);
+
+        Task<bool> Delete(ITableEntity entity, string tableName);
     }
 
     public class TableStorageProvider : ITableStorageProvider
@@ -76,6 +78,17 @@ namespace Bong.AzureStorage
             await CreateTableIfNotExist(reference);
 
             var op = TableOperation.Replace(entity);
+            var result = await reference.ExecuteAsync(op);
+
+            return result.HttpStatusCode <= 299;
+        }
+
+        public async Task<bool> Delete(ITableEntity entity, string tableName)
+        {
+            var reference = _tableClient.GetTableReference(tableName);
+            await CreateTableIfNotExist(reference);
+
+            var op = TableOperation.Delete(entity);
             var result = await reference.ExecuteAsync(op);
 
             return result.HttpStatusCode <= 299;

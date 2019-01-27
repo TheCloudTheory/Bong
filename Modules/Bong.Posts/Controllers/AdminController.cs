@@ -61,5 +61,15 @@ namespace Bong.Posts.Controllers
 
             return await List();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var post = await _provider.Get<PostEntity>("post", id, "posts");
+
+            await _provider.Delete(post, "posts");
+
+            return await List();
+        }
     }
 }
