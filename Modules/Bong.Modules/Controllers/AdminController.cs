@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Bong.Common;
 using Bong.Modules.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,15 +7,19 @@ namespace Bong.Modules.Controllers
 {
     public class AdminController : Controller
     {
-        public AdminController()
+        private readonly IModulesState _modulesState;
+
+        public AdminController(IModulesState modulesState)
         {
-            
+            _modulesState = modulesState;
         }
 
         public IActionResult Index()
         {
             var coreModules = Directory.EnumerateDirectories(Path.Combine(Directory.GetCurrentDirectory(), "Core"));
-            var model = new ModulesViewModel(coreModules);
+            var modules =
+                Directory.EnumerateDirectories(Path.Combine(Directory.GetCurrentDirectory(), "Modules"));
+            var model = new ModulesViewModel(coreModules, modules, _modulesState.LoadedModules);
 
             return View(model);
         }

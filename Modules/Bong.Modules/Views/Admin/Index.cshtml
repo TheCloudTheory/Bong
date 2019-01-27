@@ -10,17 +10,34 @@
     </div>
 </div>
 
+<h3>Core</h3>
 <div class="columns">
     @foreach (var module in Model.CoreModules)
     {
         <div class="column col-3">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title h5">Title</div>
-                    <div class="card-subtitle text-gray">Subtitle</div>
+                    <div class="card-title h5">@module.ModuleName</div>
+                    <div class="card-subtitle text-gray"></div>
                 </div>
                 <div class="card-body">
-                    @module
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<h3>External</h3>
+<div class="columns">
+    @foreach (var module in Model.Modules)
+    {
+        <div class="column col-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title h5">@module.ModuleName</div>
+                    <div class="card-subtitle text-gray"></div>
+                </div>
+                <div class="card-body">
                 </div>
             </div>
         </div>

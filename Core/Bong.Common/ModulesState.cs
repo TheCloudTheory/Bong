@@ -2,14 +2,14 @@
 
 namespace Bong.Common
 {
-    internal interface IModulesState
+    public interface IModulesState
     {
         List<BongModuleDescription> LoadedModules { get; }
     }
 
-    internal sealed class ModulesState : IModulesState
+    public sealed class ModulesState : IModulesState
     {
-        public ModulesState(IDataDeserializer deserializer)
+        internal ModulesState(IDataDeserializer deserializer)
         {
             LoadedModules = deserializer.Deserialize<List<BongModuleDescription>>("modules");
         }
