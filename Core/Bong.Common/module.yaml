@@ -1,0 +1,4 @@
+module: "Bong.Common"
+description: "Common Bong parts and helpers"
+version: "1.0.0"
+dependencies: []

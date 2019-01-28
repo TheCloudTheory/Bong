@@ -1,0 +1,4 @@
+module: "Bong.Portal"
+description: "Front-end engine"
+version: "1.0.0"
+dependencies: ["Bong.Routing"]

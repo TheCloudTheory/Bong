@@ -1,0 +1,4 @@
+module: "Bong.Security"
+description: "Internal module for providing security interfaces"
+version: "1.0.0"
+dependencies: ["Bong.Common"]

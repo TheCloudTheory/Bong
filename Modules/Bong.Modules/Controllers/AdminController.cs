@@ -8,10 +8,12 @@ namespace Bong.Modules.Controllers
     public class AdminController : Controller
     {
         private readonly IModulesState _modulesState;
+        private readonly IYamlSerializer _serializer;
 
-        public AdminController(IModulesState modulesState)
+        public AdminController(IModulesState modulesState, IYamlSerializer serializer)
         {
             _modulesState = modulesState;
+            _serializer = serializer;
         }
 
         public IActionResult Index()
@@ -19,7 +21,7 @@ namespace Bong.Modules.Controllers
             var coreModules = Directory.EnumerateDirectories(Path.Combine(Directory.GetCurrentDirectory(), "Core"));
             var modules =
                 Directory.EnumerateDirectories(Path.Combine(Directory.GetCurrentDirectory(), "Modules"));
-            var model = new ModulesViewModel(coreModules, modules, _modulesState.LoadedModules);
+            var model = new ModulesViewModel(coreModules, modules, _modulesState.LoadedModules, _serializer);
 
             return View(model);
         }

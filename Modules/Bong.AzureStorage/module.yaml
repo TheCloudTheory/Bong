@@ -1,0 +1,4 @@
+module: "Bong.AzureStorage"
+description: "Azure Storage provider enabling hosting Bong in Azure"
+version: "1.0.0"
+dependencies: ["Bong.Storage"]

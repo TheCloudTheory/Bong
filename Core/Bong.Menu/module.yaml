@@ -1,0 +1,4 @@
+module: "Bong.Menu"
+description: "Menu and admin menu builder"
+version: "1.0.0"
+dependencies: ["Bong.Common"]

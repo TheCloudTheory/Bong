@@ -17,8 +17,8 @@
         <div class="column col-3">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title h5">@module.ModuleName</div>
-                    <div class="card-subtitle text-gray"></div>
+                    <div class="card-title h5">@module.Module.Module</div>
+                    <div class="card-subtitle text-gray">@module.Module.Description</div>
                 </div>
                 <div class="card-body">
                 </div>
@@ -34,10 +34,11 @@
         <div class="column col-3">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title h5">@module.ModuleName</div>
-                    <div class="card-subtitle text-gray"></div>
+                    <div class="card-title h5">@module.Module.Module</div>
+                    <div class="card-subtitle text-gray">@module.Module.Description</div>
                 </div>
                 <div class="card-body">
+                    Depends on: <b>@string.Join(", ", module.Module.Dependencies)</b>
                 </div>
             </div>
         </div>

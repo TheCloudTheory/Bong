@@ -1,0 +1,4 @@
+module: "Bong.Storage"
+description: "Internal module for providing storage interfaces"
+version: "1.0.0"
+dependencies: ["Bong.Common"]

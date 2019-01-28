@@ -1,0 +1,4 @@
+module: "Bong.Modules"
+description: "Admin modules functionality"
+version: "1.0.0"
+dependencies: ["Bong.Routing", "Bong.Menu"]

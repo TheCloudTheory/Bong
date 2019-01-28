@@ -41,6 +41,7 @@ namespace Bong
                 services.AddSingleton<IModulesState>(modulesState);
                 services.AddSingleton<IInstallationProvider>(installationProvider);
                 services.AddSingleton(Configuration);
+                services.AddSingleton<IYamlSerializer>(new YamlSerializer());
 
                 services
                     .AddMvc()

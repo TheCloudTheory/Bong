@@ -1,0 +1,4 @@
+module: "Bong.Routing"
+description: "Bong routing engine"
+version: "1.0.0"
+dependencies: ["Bong.Helpers"]

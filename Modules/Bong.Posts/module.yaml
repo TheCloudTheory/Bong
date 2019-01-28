@@ -1,0 +1,4 @@
+module: "Bong.Post"
+description: "Create blog content with Bong.Posts"
+version: "1.0.0"
+dependencies: ["Bong.AzureStorage", "Bong.Menu", "Bong.Routing"]

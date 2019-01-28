@@ -1,0 +1,4 @@
+module: "Bong.Admin"
+description: "Internal module for handling admin dashboard"
+version: "1.0.0"
+dependencies: ["Bong.Routing", "Bong.Security"]

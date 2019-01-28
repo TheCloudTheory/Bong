@@ -1,0 +1,4 @@
+module: "Bong.Helpers"
+description: "Internal Bong helpers"
+version: "1.0.0"
+dependencies: ["Bong.Common"]
