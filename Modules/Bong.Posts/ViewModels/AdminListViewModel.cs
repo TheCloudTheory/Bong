@@ -5,9 +5,9 @@ using Bong.Posts.Models;
 
 namespace Bong.Posts.ViewModels
 {
-    public class ListViewModel
+    public class AdminListViewModel
     {
-        public ListViewModel(IEnumerable<PostEntity> posts)
+        public AdminListViewModel(IEnumerable<PostEntity> posts)
         {
             Posts = posts.Select(_ => new Post(_));
         }

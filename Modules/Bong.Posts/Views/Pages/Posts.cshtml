@@ -1,6 +1,4 @@
-﻿@*@using Bong.Portal.Components.Modules
-
-@model List<PostEntity>
+﻿@model IEnumerable<Bong.Posts.ViewModels.PostViewModel>
 
 @foreach (var post in Model)
 {
@@ -9,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title h5">@post.Title</div>
-                    <div class="card-subtitle text-gray">@post.Subtitle</div>
+                    <div class="card-subtitle text-gray"></div>
                 </div>
                 <div class="card-image">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/1920px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg" class="img-responsive">
@@ -25,4 +23,4 @@
             </div>
         </div>
     </div>
-}*@
+}

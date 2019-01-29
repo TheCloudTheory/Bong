@@ -14,7 +14,6 @@
     <Folder Include="scripts\" />
     <Folder Include="views\Components\Navbar\" />
     <Folder Include="views\Components\Menu\" />
-    <Folder Include="views\Components\Posts\" />
     <Folder Include="views\Shared\" />
   </ItemGroup>
 

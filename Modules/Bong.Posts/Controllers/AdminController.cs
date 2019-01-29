@@ -20,7 +20,7 @@ namespace Bong.Posts.Controllers
         {
             var posts = (await _provider.List<PostEntity>("posts")).ToArray();
 
-            return View("List", new ListViewModel(posts));
+            return View("List", new AdminListViewModel(posts));
         }
 
         [HttpGet]
