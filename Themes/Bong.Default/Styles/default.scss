@@ -2,20 +2,52 @@
 $color2: #4e98f2;
 $color3: #6ca3e6;
 $color4: #87acd9;
+$color5: #303742;
 
 $black: #000;
 $white: #fff;
 
-.navbar {
-    background: $color2;
-    color: $white;
-    margin-bottom: 1rem;
+body {
+    min-height: 100vh;
 
-    a.btn {
-        color: $white;
+    .card {
+        margin-bottom: 0.5rem;
     }
-}
 
-.card {
-    margin-bottom: 0.5rem;
+    .sidebar {
+        background-color: $color5;
+        color: $white;
+
+        .brand {
+            margin-top: 1rem;
+            text-align: center;
+
+            .brand-name {
+                display: block;
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+        }
+
+        .nav {
+            padding-left: .3rem;
+
+            a, a:visited {
+                color: $white;
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .parent {
+        &.container {
+            padding: 0;
+        }
+    }
+
+    .column {
+        &.content {
+            padding: .4rem !important;
+        }
+    }
 }

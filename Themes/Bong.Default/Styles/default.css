@@ -1,9 +1,23 @@
-﻿.navbar {
-  background: #4e98f2;
-  color: #fff;
-  margin-bottom: 1rem; }
-  .navbar a.btn {
+﻿body {
+  min-height: 100vh; }
+  body .card {
+    margin-bottom: 0.5rem; }
+  body .sidebar {
+    background-color: #303742;
     color: #fff; }
-
-.card {
-  margin-bottom: 0.5rem; }
+    body .sidebar .brand {
+      margin-top: 1rem;
+      text-align: center; }
+      body .sidebar .brand .brand-name {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: bold; }
+    body .sidebar .nav {
+      padding-left: .3rem; }
+      body .sidebar .nav a, body .sidebar .nav a:visited {
+        color: #fff;
+        font-size: .7rem; }
+  body .parent.container {
+    padding: 0; }
+  body .column.content {
+    padding: .4rem !important; }
