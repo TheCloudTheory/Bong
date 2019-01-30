@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="views\Components\Navbar.cshtml" />
   </ItemGroup>
 
@@ -15,6 +19,10 @@
     <Folder Include="views\Components\Navbar\" />
     <Folder Include="views\Components\Menu\" />
     <Folder Include="views\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

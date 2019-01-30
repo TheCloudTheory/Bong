@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bong.Menu
 {
-    public class AdminMenuViewComponent : ViewComponent
+    public class MenuViewComponent : ViewComponent
     {
         private readonly IMenuCache _cache;
 
-        public AdminMenuViewComponent(IMenuCache cache)
+        public MenuViewComponent(IMenuCache cache)
         {
             _cache = cache;
         }
@@ -15,7 +15,7 @@ namespace Bong.Menu
         public Task<IViewComponentResult> InvokeAsync()
         {
             
-            return Task.FromResult<IViewComponentResult>(View("AdminMenu", _cache.AdminItems));
+            return Task.FromResult<IViewComponentResult>(View("Menu", _cache.Items));
         }
     }
 }

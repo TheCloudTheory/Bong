@@ -1,0 +1,16 @@
+﻿using System.Collections.Generic;
+
+namespace Bong.Menu
+{
+    public interface IMenuCache
+    {
+        List<MenuItem> AdminItems { get; }
+        List<MenuItem> Items { get; }
+    }
+
+    internal sealed class MenuCache : IMenuCache
+    {
+        public List<MenuItem> AdminItems => new List<MenuItem>();
+        public List<MenuItem> Items => new List<MenuItem>();
+    }
+}
