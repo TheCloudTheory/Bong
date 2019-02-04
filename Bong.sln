@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Security", "Core\Bong.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Security.Basic", "Modules\Bong.Security.Basic\Bong.Security.Basic.csproj", "{4CAC865E-7618-4D07-8680-8950D8DEA94B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Modules", "Modules\Bong.Modules\Bong.Modules.csproj", "{3225BC25-98D4-47BB-BB1D-F440F471AB71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bong.Modules", "Modules\Bong.Modules\Bong.Modules.csproj", "{3225BC25-98D4-47BB-BB1D-F440F471AB71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bong.Pages", "Modules\Bong.Pages\Bong.Pages.csproj", "{BC173777-0A52-476A-9CF6-82AC4CAFA163}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3225BC25-98D4-47BB-BB1D-F440F471AB71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC173777-0A52-476A-9CF6-82AC4CAFA163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC173777-0A52-476A-9CF6-82AC4CAFA163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC173777-0A52-476A-9CF6-82AC4CAFA163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC173777-0A52-476A-9CF6-82AC4CAFA163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +130,7 @@ Global
 		{90D7F086-F352-4F82-AE03-EBE75094F26F} = {B266DDEC-C78D-4548-978B-6C4DBE8F11AA}
 		{4CAC865E-7618-4D07-8680-8950D8DEA94B} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
 		{3225BC25-98D4-47BB-BB1D-F440F471AB71} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
+		{BC173777-0A52-476A-9CF6-82AC4CAFA163} = {9CEF65EF-252A-43BE-B1A9-98AC47F80446}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F481EAE-04F3-4872-BD54-D8D1F4C12CE9}

@@ -10,7 +10,13 @@ namespace Bong.Menu
 
     internal sealed class MenuCache : IMenuCache
     {
-        public List<MenuItem> AdminItems => new List<MenuItem>();
-        public List<MenuItem> Items => new List<MenuItem>();
+        public List<MenuItem> AdminItems { get; }
+        public List<MenuItem> Items { get; }
+
+        public MenuCache()
+        {
+            AdminItems = new List<MenuItem>();
+            Items = new List<MenuItem>();
+        }
     }
 }

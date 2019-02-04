@@ -10,13 +10,13 @@ namespace Bong.Posts
             return new[]
             {
                 new RouteDescription("Bong.Posts.Admin.ListPosts", "admin/posts",
-                    new {area ="Bong.Posts", controller = "Admin", action = "List"}),
+                    new {area ="Bong.Posts", controller = "Admin", action = "ListPosts"}),
                 new RouteDescription("Bong.Posts.Admin.CreatePost", "admin/posts/create",
-                    new {area ="Bong.Posts", controller = "Admin", action = "Create"}),
+                    new {area ="Bong.Posts", controller = "Admin", action = "CreatePost"}),
                 new RouteDescription("Bong.Posts.Admin.EditPost", "admin/posts/edit/{id}",
-                    new {area ="Bong.Posts", controller = "Admin", action = "Edit"}),
+                    new {area ="Bong.Posts", controller = "Admin", action = "EditPost"}),
                 new RouteDescription("Bong.Posts.Admin.DeletePost", "admin/posts/delete/{id}",
-                    new {area ="Bong.Posts", controller = "Admin", action = "Delete"})
+                    new {area ="Bong.Posts", controller = "Admin", action = "DeletePost"})
             };
         }
     }

@@ -48,3 +48,8 @@
   file: Bong.Modules.dll
   version: 1.0.0
   type:  external
+-
+  module: Bong.Pages
+  file: Bong.Pages.dll
+  version: 1.0.0
+  type:  external

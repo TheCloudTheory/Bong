@@ -1,0 +1,4 @@
+module: "Bong.Pages"
+description: "Manage pages on your website"
+version: "1.0.0"
+dependencies: ["Bong.Routing", "Bong.Menu", "Bong.AzureStorage"]

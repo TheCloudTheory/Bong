@@ -16,7 +16,7 @@ namespace Bong.Posts.Controllers
             _provider = provider;
         }
 
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> ListPosts()
         {
             var posts = (await _provider.List<PostEntity>("posts")).ToArray();
 
@@ -24,32 +24,32 @@ namespace Bong.Posts.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult CreatePost()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PostViewModel model)
+        public async Task<IActionResult> CreatePost(PostViewModel model)
         {
             var post = new PostEntity(model);
 
             await _provider.Create(post, "posts");
 
-            return await List();
+            return await ListPosts();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> EditPost(string id)
         {
             var post = await _provider.Get<PostEntity>("post", id, "posts");
             var model = new PostViewModel(post);
 
-            return View(model);
+            return View("Edit", model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, PostViewModel model)
+        public async Task<IActionResult> EditPost(string id, PostViewModel model)
         {
             var post = await _provider.Get<PostEntity>("post", id, "posts");
 
@@ -59,17 +59,17 @@ namespace Bong.Posts.Controllers
 
             await _provider.Save(post, "posts");
 
-            return await List();
+            return await ListPosts();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> DeletePost(string id)
         {
             var post = await _provider.Get<PostEntity>("post", id, "posts");
 
             await _provider.Delete(post, "posts");
 
-            return await List();
+            return await ListPosts();
         }
     }
 }
