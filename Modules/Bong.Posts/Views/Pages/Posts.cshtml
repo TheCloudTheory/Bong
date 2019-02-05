@@ -16,9 +16,7 @@
                     @Html.Raw(post.Body)
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">
-                        Read more!
-                    </button>
+                    <a href="@Url.Link("Bong.Posts.View", new { postId = post.Url })" class="btn btn-primary">Read more</a>
                 </div>
             </div>
         </div>

@@ -9,12 +9,12 @@ namespace Bong.Posts.Models
         public PostEntity()
         {
             PartitionKey = "post";
-            RowKey = Guid.NewGuid().ToString();
         }
 
         public PostEntity(PostViewModel model)
             : this()
         {
+            RowKey = model.Url;
             Title = model.Title;
             Url = model.Url;
             Body = model.Body;

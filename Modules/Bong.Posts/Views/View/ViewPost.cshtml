@@ -1,0 +1,22 @@
+﻿@model Bong.Posts.ViewModels.PostViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="columns">
+    <div class="column col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title h5">@Model.Title</div>
+                <div class="card-subtitle text-gray"></div>
+            </div>
+            <div class="card-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/1920px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg" class="img-responsive">
+            </div>
+            <div class="card-body">
+                @Html.Raw(Model.Body)
+            </div>
+        </div>
+    </div>
+</div>
